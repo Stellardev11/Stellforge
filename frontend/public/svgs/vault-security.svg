@@ -1,0 +1,67 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD535;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7931A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="innerShield" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD535;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#F7931A;stop-opacity:0.1" />
+    </linearGradient>
+    <radialGradient id="shieldGlow">
+      <stop offset="0%" style="stop-color:#FCD535;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#F7931A;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="150" r="145" fill="url(#shieldGlow)"/>
+  
+  <path d="M 200 40 L 290 75 L 290 150 Q 290 200 260 225 Q 230 250 200 260 Q 170 250 140 225 Q 110 200 110 150 L 110 75 Z" 
+        fill="url(#innerShield)"/>
+  
+  <path d="M 200 40 L 290 75 L 290 150 Q 290 200 260 225 Q 230 250 200 260 Q 170 250 140 225 Q 110 200 110 150 L 110 75 Z" 
+        stroke="url(#shieldGrad)" 
+        stroke-width="4" 
+        fill="none"
+        filter="drop-shadow(0 0 20px rgba(252, 213, 53, 0.7))"/>
+  
+  <path d="M 200 60 L 270 85 L 270 145 Q 270 185 245 205 Q 222 225 200 233 Q 178 225 155 205 Q 130 185 130 145 L 130 85 Z" 
+        stroke="url(#shieldGrad)" 
+        stroke-width="2" 
+        fill="none"
+        opacity="0.5"/>
+  
+  <line x1="200" y1="50" x2="200" y2="250" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.3"/>
+  
+  <g filter="drop-shadow(0 0 15px rgba(252, 213, 53, 0.9))">
+    <path d="M 200 110 L 185 130 L 192 130 L 190 150 L 210 125 L 203 125 L 200 110 Z" 
+          fill="url(#shieldGrad)"/>
+  </g>
+  
+  <g opacity="0.7">
+    <circle cx="160" cy="170" r="18" fill="#0B0E11" stroke="#FCD535" stroke-width="2.5"/>
+    <path d="M 154 170 L 158 174 L 166 164" stroke="#FCD535" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <g opacity="0.7">
+    <circle cx="240" cy="170" r="18" fill="#0B0E11" stroke="#F7931A" stroke-width="2.5"/>
+    <path d="M 234 170 L 238 174 L 246 164" stroke="#F7931A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <g opacity="0.7">
+    <circle cx="200" cy="200" r="18" fill="#0B0E11" stroke="#FCD535" stroke-width="2.5"/>
+    <path d="M 194 200 L 198 204 L 206 194" stroke="#FCD535" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <circle cx="140" cy="95" r="4" fill="#FCD535" opacity="0.6" filter="drop-shadow(0 0 6px rgba(252, 213, 53, 0.8))"/>
+  <circle cx="260" cy="95" r="4" fill="#F7931A" opacity="0.6" filter="drop-shadow(0 0 6px rgba(247, 147, 26, 0.8))"/>
+  <circle cx="120" cy="120" r="3" fill="#FCD535" opacity="0.5" filter="drop-shadow(0 0 4px rgba(252, 213, 53, 0.7))"/>
+  <circle cx="280" cy="120" r="3" fill="#F7931A" opacity="0.5" filter="drop-shadow(0 0 4px rgba(247, 147, 26, 0.7))"/>
+  <circle cx="115" cy="180" r="3" fill="#F7931A" opacity="0.5" filter="drop-shadow(0 0 4px rgba(247, 147, 26, 0.7))"/>
+  <circle cx="285" cy="180" r="3" fill="#FCD535" opacity="0.5" filter="drop-shadow(0 0 4px rgba(252, 213, 53, 0.7))"/>
+  
+  <path d="M 140 95 L 160 110" stroke="#FCD535" stroke-width="1" opacity="0.3"/>
+  <path d="M 260 95 L 240 110" stroke="#F7931A" stroke-width="1" opacity="0.3"/>
+  <path d="M 160 170 L 200 200" stroke="#FCD535" stroke-width="1" opacity="0.3"/>
+  <path d="M 240 170 L 200 200" stroke="#F7931A" stroke-width="1" opacity="0.3"/>
+</svg>

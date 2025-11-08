@@ -1,0 +1,91 @@
+modules = ["nodejs-20", "web"]
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Frontend App"
+
+[[workflows.workflow]]
+name = "Frontend App"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
+[[ports]]
+localPort = 3000
+
+[[ports]]
+localPort = 3001
+externalPort = 3001
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 41241
+externalPort = 3000
+
+[[ports]]
+localPort = 41571
+externalPort = 5173
+
+[[ports]]
+localPort = 42103
+externalPort = 3002
+
+[[ports]]
+localPort = 43485
+
+[[ports]]
+localPort = 43523
+
+[[ports]]
+localPort = 43835
+
+[[ports]]
+localPort = 43893
+
+[[ports]]
+localPort = 44221
+
+[[ports]]
+localPort = 44481
+externalPort = 4200
+
+[[ports]]
+localPort = 44897
+
+[[ports]]
+localPort = 45495
+
+[[ports]]
+localPort = 45973
+externalPort = 3003
+
+[[ports]]
+localPort = 46579
+
+[nix]
+channel = "stable-25_05"
+packages = ["systemd"]
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["npm", "run", "start"]
+build = ["npm", "run", "build"]

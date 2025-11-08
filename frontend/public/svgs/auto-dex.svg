@@ -1,0 +1,66 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="curveGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7931A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FCD535;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7931A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fillGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7931A;stop-opacity:0.05" />
+      <stop offset="30%" style="stop-color:#FCD535;stop-opacity:0.15" />
+      <stop offset="70%" style="stop-color:#F7931A;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#FCD535;stop-opacity:0.05" />
+    </linearGradient>
+    <radialGradient id="bgGlow">
+      <stop offset="0%" style="stop-color:#FCD535;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#F7931A;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="150" r="150" fill="url(#bgGlow)"/>
+  
+  <rect x="40" y="40" width="320" height="220" rx="12" fill="#0B0E11" opacity="0.3"/>
+  
+  <line x1="50" y1="80" x2="350" y2="80" stroke="#2B3139" stroke-width="0.5" opacity="0.3"/>
+  <line x1="50" y1="120" x2="350" y2="120" stroke="#2B3139" stroke-width="0.5" opacity="0.3"/>
+  <line x1="50" y1="160" x2="350" y2="160" stroke="#2B3139" stroke-width="0.5" opacity="0.3"/>
+  <line x1="50" y1="200" x2="350" y2="200" stroke="#2B3139" stroke-width="0.5" opacity="0.3"/>
+  <line x1="50" y1="240" x2="350" y2="240" stroke="#2B3139" stroke-width="0.5" opacity="0.3"/>
+  
+  <line x1="90" y1="50" x2="90" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  <line x1="140" y1="50" x2="140" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  <line x1="190" y1="50" x2="190" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  <line x1="240" y1="50" x2="240" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  <line x1="290" y1="50" x2="290" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  <line x1="340" y1="50" x2="340" y2="250" stroke="#2B3139" stroke-width="0.5" opacity="0.2"/>
+  
+  <path d="M 60 240 Q 90 235 120 220 Q 150 200 180 170 Q 210 130 240 90 Q 270 60 300 50 Q 320 45 340 45" 
+        stroke="url(#curveGradient)" 
+        stroke-width="4" 
+        fill="none" 
+        stroke-linecap="round"
+        filter="drop-shadow(0 0 12px rgba(252, 213, 53, 0.6))"/>
+  
+  <path d="M 60 240 Q 90 235 120 220 Q 150 200 180 170 Q 210 130 240 90 Q 270 60 300 50 Q 320 45 340 45 L 340 250 L 60 250 Z" 
+        fill="url(#fillGradient)"/>
+  
+  <g filter="drop-shadow(0 0 8px rgba(252, 213, 53, 0.9))">
+    <circle cx="60" cy="240" r="5" fill="#F7931A"/>
+    <circle cx="120" cy="220" r="5" fill="#FCD535"/>
+    <circle cx="180" cy="170" r="5" fill="#FCD535"/>
+    <circle cx="240" cy="90" r="5" fill="#FCD535"/>
+    <circle cx="300" cy="50" r="5" fill="#F7931A"/>
+    <circle cx="340" cy="45" r="5" fill="#FCD535"/>
+  </g>
+  
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#F7931A" stroke-width="2" opacity="0.6"/>
+  <line x1="50" y1="250" x2="50" y2="50" stroke="#F7931A" stroke-width="2" opacity="0.6"/>
+  
+  <g opacity="0.4">
+    <line x1="60" y1="240" x2="60" y2="250" stroke="#FCD535" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="120" y1="220" x2="120" y2="250" stroke="#FCD535" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="180" y1="170" x2="180" y2="250" stroke="#FCD535" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="240" y1="90" x2="240" y2="250" stroke="#FCD535" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="300" y1="50" x2="300" y2="250" stroke="#FCD535" stroke-width="1" stroke-dasharray="2 2"/>
+  </g>
+</svg>

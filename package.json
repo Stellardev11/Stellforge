@@ -1,0 +1,29 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "**The No-Code Token Creation Platform for Stellar Blockchain**",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "start": "cd backend && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.4.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "apexcharts": "^5.3.5",
+    "axios": "^1.13.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.23.24",
+    "react-apexcharts": "^1.8.0",
+    "react-confetti": "^6.4.0",
+    "recharts": "^3.3.0",
+    "three": "^0.181.0",
+    "zustand": "^5.0.8"
+  }
+}
