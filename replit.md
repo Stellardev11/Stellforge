@@ -3,9 +3,19 @@
 ## Overview
 StellForge is a Fair Token Launch Platform built on the Stellar (XLM) blockchain featuring a STAR points minting system. Users convert XLM to STAR points at a fixed rate (1 XLM = 10 STAR), and STAR holders receive 60% of the SLF token supply at Token Generation Event (TGE). The platform emphasizes minimal, professional design with wallet-gated features and a premium user experience focused on fair token distribution.
 
+## Recent Changes
+- **November 9, 2025**: Major navigation and UI redesign
+  - Expanded navigation from 3 to 7 menu items for improved organization
+  - Created standalone Leaderboard component showing top 50 users by STAR balance
+  - Redesigned Mint Points page to focus solely on minting functionality
+  - Enhanced Documentation page with professional recharts tokenomics visualization and 3D SLF coin
+  - Updated Dashboard color scheme from blue to professional gold/orange theme (#FCD535, #F7931A)
+  - Added Database icon to Mint Points, Trophy icon to Leaderboard, LayoutDashboard icon to Dashboard
+  - Separated Dashboard and Mint Points into distinct menu items for clearer UX
+
 ## User Preferences
 - **Professional Minimal Design**: Clean, focused interface with NO multi-color "ponzi" gradients - strictly minimal aesthetic
-- **Color Scheme**: Restrained dark palette (#0B0E11 dark bg, #1A1D23/#1E2329 cards) with ONLY gold (#FCD535) for STAR branding
+- **Color Scheme**: Restrained dark palette (#0B0E11 dark bg, #1A1D23/#1E2329 cards) with ONLY gold (#FCD535) and orange (#F7931A) for STAR/SLF branding
 - **3D Assets**: Premium 3D golden STAR token logo for visual appeal
 - **Wallet-First**: All features require wallet connection - comprehensive wallet gating throughout app
 - **Grid-Based Layouts**: Clean, organized grids following crypto industry tokenomics standards
@@ -28,7 +38,10 @@ StellForge is structured into several layers:
 
 **Key Features & Design Choices:**
 - **UI/UX**: Professional DeFi design with clean navigation, minimal color palette. Custom-designed SVG illustrations for key concepts.
-- **Navigation System**: TopNav component with three main tabs (Swap, Liquidity, Projects), StellForge logo, and wallet connection.
+- **Navigation System**: TopNav component with seven menu items (Swap, Liquidity, Projects, Dashboard, Mint Points, Leaderboard, Documentation), StellForge logo, and wallet connection.
+- **Dashboard**: Comprehensive overview with user stats (STAR balance, referrals), platform stats (total burned, participants), top projects, referral link sharing, and token lifecycle visualization. Uses professional gold/orange theme.
+- **Mint Points**: Dedicated page for converting XLM to STAR points at 1:10 rate. Clean, focused interface with Database icon and core minting functionality.
+- **Leaderboard**: Rankings page displaying top 50 users by STAR balance with referral counts. Professional table layout with gold accents.
 - **Swap Interface**: Stellar DEX token swap functionality with real-time balance display, slippage tolerance, and wallet integration. Redesigned for mobile-first experience with vertical token selection and full-width buttons.
 - **Liquidity Management**: View active liquidity pools, add/remove liquidity, and track user positions and statistics.
 - **Token Creation Wizard**: Simplified 3-step process:
