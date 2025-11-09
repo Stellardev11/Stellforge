@@ -29,7 +29,7 @@ export default function BottomNav({ activeTab, setActiveTab }: BottomNavProps) {
               onClick={() => setActiveTab(item.id)}
               className={`flex flex-col items-center justify-center min-w-[60px] h-14 rounded-xl transition-all duration-300 ${
                 isActive 
-                  ? 'text-stellar-cyan bg-stellar-cyan/10 scale-105' 
+                  ? 'text-#FCD535 bg-#FCD535/10 scale-105' 
                   : 'text-eth-grey hover:text-white active:scale-95'
               }`}
             >

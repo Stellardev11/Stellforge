@@ -267,18 +267,18 @@ export default function SwapPage() {
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-white">{code}</span>
                         {isVerified ? (
-                          <div className="flex items-center gap-1 px-2 py-0.5 bg-[#10B981]/20 rounded-full">
-                            <ShieldCheck size={12} className="text-[#10B981]" />
-                            <span className="text-xs text-[#10B981] font-medium">Verified</span>
+                          <div className="flex items-center gap-1 px-2 py-0.5 bg-[#FCD535]/20 rounded-full">
+                            <ShieldCheck size={12} className="text-[#FCD535]" />
+                            <span className="text-xs text-[#FCD535] font-medium">Verified</span>
                           </div>
                         ) : (
-                          <div className="flex items-center gap-1 px-2 py-0.5 bg-[#EAB308]/20 rounded-full">
-                            <AlertTriangle size={12} className="text-[#EAB308]" />
-                            <span className="text-xs text-[#EAB308] font-medium">Unverified</span>
+                          <div className="flex items-center gap-1 px-2 py-0.5 bg-[#F7931A]/20 rounded-full">
+                            <AlertTriangle size={12} className="text-[#F7931A]" />
+                            <span className="text-xs text-[#F7931A] font-medium">Unverified</span>
                           </div>
                         )}
                       </div>
-                      <div className={`text-xs truncate ${isVerified ? 'text-[#10B981]' : 'text-[#EAB308]'}`}>
+                      <div className={`text-xs truncate ${isVerified ? 'text-[#FCD535]' : 'text-[#F7931A]'}`}>
                         {isVerified && asset.domain 
                           ? asset.domain 
                           : (issuer !== 'native' ? `${issuer.substring(0, 8)}...${issuer.substring(issuer.length - 8)}` : 'Stellar')
@@ -360,13 +360,19 @@ export default function SwapPage() {
         <div className="bg-[#1E2329] rounded-2xl max-w-md w-full border border-[#2B3139]" onClick={(e) => e.stopPropagation()}>
           <div className="p-6">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#10B981]/20 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle size={32} className="text-[#10B981]" />
+              <div className="w-16 h-16 bg-[#FCD535]/20 rounded-full flex items-center justify-center mb-4 animate-pulse">
+                <CheckCircle size={32} className="text-[#FCD535]" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Swap Successful!</h3>
-              <p className="text-gray-400 mb-4">
-                Swapped {parseFloat(swapSuccess.fromAmount).toFixed(6)} {swapSuccess.fromAsset} for {parseFloat(swapSuccess.toAmount).toFixed(6)} {swapSuccess.toAsset}
-              </p>
+              <h3 className="text-2xl font-bold text-white mb-2">Swap Successful!</h3>
+              <div className="bg-gradient-to-r from-[#FCD535]/10 to-[#F7931A]/10 p-4 rounded-lg border border-[#FCD535]/30 mb-4 w-full">
+                <p className="text-white font-semibold mb-1">
+                  {parseFloat(swapSuccess.fromAmount).toFixed(6)} {swapSuccess.fromAsset}
+                </p>
+                <p className="text-gray-400 text-sm mb-1">↓</p>
+                <p className="text-[#FCD535] font-bold text-lg">
+                  {parseFloat(swapSuccess.toAmount).toFixed(6)} {swapSuccess.toAsset}
+                </p>
+              </div>
               
               <div className="w-full bg-[#0B0E11] rounded-lg p-3 mb-4">
                 <div className="flex items-center justify-between mb-2">
@@ -432,19 +438,19 @@ export default function SwapPage() {
     <div className="min-h-screen bg-[#0B0E11] text-white">
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-white mb-2 bg-gradient-to-r from-[#FCD535] to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold text-white mb-3 bg-gradient-to-r from-[#FCD535] to-[#F7931A] bg-clip-text text-transparent">
             Lightning Swap
           </h1>
-          <p className="text-sm text-gray-400">Trade tokens instantly on Stellar with best rates</p>
+          <p className="text-base text-gray-400">Trade tokens instantly on Stellar with best rates</p>
         </div>
         
         <div className="flex items-center justify-between mb-4">
           <div className="flex gap-2">
-            <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-lg">
-              <span className="text-xs text-green-400">● Live Prices</span>
+            <div className="px-3 py-1 bg-[#FCD535]/20 border border-[#FCD535]/30 rounded-lg">
+              <span className="text-xs text-[#FCD535]">● Live Prices</span>
             </div>
-            <div className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-lg">
-              <span className="text-xs text-blue-400">⚡ Instant</span>
+            <div className="px-3 py-1 bg-[#F7931A]/20 border border-[#F7931A]/30 rounded-lg">
+              <span className="text-xs text-[#F7931A]">⚡ Instant</span>
             </div>
           </div>
           <button 
@@ -556,9 +562,9 @@ export default function SwapPage() {
           </div>
 
           {quote && fromAmount && (
-            <div className="mt-4 p-4 bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-xl">
-              <div className="flex items-center justify-between text-sm mb-2">
-                <span className="text-gray-400">Rate</span>
+            <div className="mt-4 p-4 bg-gradient-to-br from-[#F7931A]/10 to-[#FCD535]/10 border border-[#F7931A]/30 rounded-xl">
+              <div className="flex items-center justify-between text-sm mb-3">
+                <span className="text-gray-400 font-medium">Exchange Rate</span>
                 <span className="text-white">
                   1 {getAssetCode(fromAsset)} ≈ {(parseFloat(quote.destination_amount) / parseFloat(fromAmount)).toFixed(6)} {getAssetCode(toAsset)}
                 </span>

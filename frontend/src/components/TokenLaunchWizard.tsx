@@ -224,17 +224,17 @@ export default function TokenLaunchWizard() {
               <div className="flex flex-col items-center min-w-0">
                 <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all font-bold text-base sm:text-lg ${
                   s <= step 
-                    ? 'bg-gradient-to-r from-bitcoin-orange to-bitcoin-orange-light text-white shadow-lg shadow-bitcoin-orange/50' 
+                    ? 'bg-gradient-to-r from-#F7931A to-#F7931A-light text-white shadow-lg shadow-#F7931A/50' 
                     : 'bg-pro-dark-lighter text-eth-grey'
                 }`}>
                   {s < step ? <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7" /> : s}
                 </div>
-                <span className={`text-xs sm:text-sm mt-2 sm:mt-3 font-medium text-center max-w-[120px] ${s <= step ? 'text-stellar-cyan' : 'text-eth-grey'}`}>
+                <span className={`text-xs sm:text-sm mt-2 sm:mt-3 font-medium text-center max-w-[120px] ${s <= step ? 'text-[#FCD535]' : 'text-eth-grey'}`}>
                   {stepTitles[s - 1]}
                 </span>
               </div>
               {s < 3 && (
-                <div className={`w-12 sm:w-20 md:w-28 h-1.5 mx-1 sm:mx-2 md:mx-3 rounded-full ${s < step ? 'bg-gradient-to-r from-bitcoin-orange to-bitcoin-orange-light' : 'bg-pro-dark-lighter'}`} />
+                <div className={`w-12 sm:w-20 md:w-28 h-1.5 mx-1 sm:mx-2 md:mx-3 rounded-full ${s < step ? 'bg-gradient-to-r from-#F7931A to-#F7931A-light' : 'bg-pro-dark-lighter'}`} />
               )}
             </div>
           ))}
@@ -251,14 +251,14 @@ export default function TokenLaunchWizard() {
               <div className="space-y-5">
                 <div>
                   <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium mb-2">
-                    <Coins className="w-4 h-4 text-bitcoin-orange" />
+                    <Coins className="w-4 h-4 text-#F7931A" />
                     Token Name *
                   </label>
                   <input
                     type="text"
                     value={formData.tokenName}
                     onChange={(e) => setFormData({...formData, tokenName: e.target.value})}
-                    className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg"
+                    className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg"
                     placeholder="e.g., Moon Token"
                     required
                   />
@@ -271,7 +271,7 @@ export default function TokenLaunchWizard() {
                       type="text"
                       value={formData.tokenSymbol}
                       onChange={(e) => setFormData({...formData, tokenSymbol: e.target.value.toUpperCase()})}
-                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg font-semibold"
+                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg font-semibold"
                       placeholder="MOON"
                       maxLength={12}
                       required
@@ -284,7 +284,7 @@ export default function TokenLaunchWizard() {
                       type="number"
                       value={formData.totalSupply}
                       onChange={(e) => setFormData({...formData, totalSupply: e.target.value})}
-                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg"
+                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg"
                       placeholder="1000000"
                       required
                     />
@@ -304,7 +304,7 @@ export default function TokenLaunchWizard() {
                       type="number"
                       value={formData.decimals}
                       onChange={(e) => setFormData({...formData, decimals: e.target.value})}
-                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg"
+                      className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg"
                       min="0"
                       max="18"
                     />
@@ -314,13 +314,13 @@ export default function TokenLaunchWizard() {
 
                 <div>
                   <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium mb-2">
-                    <Coins className="w-4 h-4 text-stellar-cyan" />
+                    <Coins className="w-4 h-4 text-[#FCD535]" />
                     Token Description *
                   </label>
                   <textarea
                     value={formData.description}
                     onChange={(e) => setFormData({...formData, description: e.target.value})}
-                    className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent min-h-36 text-base leading-relaxed"
+                    className="w-full bg-pro-dark-lighter border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent min-h-36 text-base leading-relaxed"
                     placeholder="Describe your token, its purpose, and what makes it unique..."
                     rows={5}
                     maxLength={500}
@@ -328,7 +328,7 @@ export default function TokenLaunchWizard() {
                   />
                   <div className="flex justify-between items-center mt-2">
                     <p className="text-xs text-eth-grey">Share your vision and use case</p>
-                    <p className={`text-xs font-medium ${formData.description.length > 450 ? 'text-bitcoin-orange' : 'text-eth-grey'}`}>
+                    <p className={`text-xs font-medium ${formData.description.length > 450 ? 'text-#F7931A' : 'text-eth-grey'}`}>
                       {formData.description.length} / 500
                     </p>
                   </div>
@@ -336,17 +336,17 @@ export default function TokenLaunchWizard() {
 
                 <div>
                   <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium mb-3">
-                    <Upload className="w-4 h-4 text-stellar-cyan" />
+                    <Upload className="w-4 h-4 text-[#FCD535]" />
                     Token Logo (Optional)
                   </label>
                   <div className="flex items-center gap-6">
                     {logoPreview && (
-                      <div className="w-24 h-24 rounded-xl overflow-hidden border-2 border-stellar-cyan shadow-lg shadow-stellar-cyan/20">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden border-2 border-[#FCD535] shadow-lg shadow-[#FCD535]/20">
                         <img src={logoPreview} alt="Logo preview" className="w-full h-full object-cover" />
                       </div>
                     )}
                     <label className="flex-1 cursor-pointer">
-                      <div className="bg-pro-dark-lighter border-2 border-dashed border-white/20 hover:border-stellar-cyan transition-all duration-300 rounded-xl p-10 text-center hover:bg-pro-dark">
+                      <div className="bg-pro-dark-lighter border-2 border-dashed border-white/20 hover:border-[#FCD535] transition-all duration-300 rounded-xl p-10 text-center hover:bg-pro-dark">
                         <Upload className="w-10 h-10 text-eth-grey mx-auto mb-3" />
                         <p className="text-sm text-eth-grey-medium font-medium">
                           {formData.logoFile ? formData.logoFile.name : 'Click to upload logo'}
@@ -375,14 +375,14 @@ export default function TokenLaunchWizard() {
 
               <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-stellar-cyan" />
+                  <TrendingUp className="w-5 h-5 text-[#FCD535]" />
                   Token Distribution
                 </h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium">
-                      <Gift className="w-4 h-4 text-stellar-cyan" />
+                      <Gift className="w-4 h-4 text-[#FCD535]" />
                       Airdrop Allocation %
                       <div className="group relative">
                         <HelpCircle className="w-4 h-4 text-eth-grey cursor-help" />
@@ -395,19 +395,19 @@ export default function TokenLaunchWizard() {
                       type="number" 
                       value={formData.airdropPercent} 
                       onChange={(e) => setFormData({...formData, airdropPercent: e.target.value})} 
-                      className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg font-semibold" 
+                      className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg font-semibold" 
                       min="10"
                       max="80"
                       placeholder="40"
                     />
-                    <p className="text-xs text-stellar-cyan font-medium">
+                    <p className="text-xs text-[#FCD535] font-medium">
                       {getAirdropTokens().toLocaleString()} tokens
                     </p>
                   </div>
 
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium">
-                      <Rocket className="w-4 h-4 text-bitcoin-orange" />
+                      <Rocket className="w-4 h-4 text-#F7931A" />
                       Liquidity Pool %
                       <div className="group relative">
                         <HelpCircle className="w-4 h-4 text-eth-grey cursor-help" />
@@ -420,12 +420,12 @@ export default function TokenLaunchWizard() {
                       type="number" 
                       value={formData.liquidityPercent} 
                       onChange={(e) => setFormData({...formData, liquidityPercent: e.target.value})} 
-                      className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg font-semibold" 
+                      className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg font-semibold" 
                       min="10"
                       max="80"
                       placeholder="30"
                     />
-                    <p className="text-xs text-bitcoin-orange font-medium">
+                    <p className="text-xs text-#F7931A font-medium">
                       {getLiquidityTokens().toLocaleString()} tokens
                     </p>
                   </div>
@@ -433,8 +433,8 @@ export default function TokenLaunchWizard() {
 
                 <div className={`rounded-xl p-5 border-2 transition-all ${
                   getAllocation().valid
-                    ? 'bg-gradient-to-r from-stellar-cyan/10 to-stellar-cyan/5 border-stellar-cyan/40' 
-                    : 'bg-gradient-to-r from-accent-red/10 to-bitcoin-orange/10 border-accent-red/40'
+                    ? 'bg-gradient-to-r from-[#FCD535]/10 to-[#FCD535]/5 border-[#FCD535]/40' 
+                    : 'bg-gradient-to-r from-accent-red/10 to-#F7931A/10 border-accent-red/40'
                 }`}>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -442,13 +442,13 @@ export default function TokenLaunchWizard() {
                       <p className="text-2xl font-bold text-white">
                         {getAllocation().creator}%
                       </p>
-                      <p className="text-xs text-stellar-cyan font-medium mt-1">
+                      <p className="text-xs text-[#FCD535] font-medium mt-1">
                         {getCreatorTokens().toLocaleString()} tokens → your wallet
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-eth-grey mb-1">Total Allocated</p>
-                      <p className={`text-2xl font-bold ${getAllocation().valid ? 'text-stellar-cyan' : 'text-accent-red'}`}>
+                      <p className={`text-2xl font-bold ${getAllocation().valid ? 'text-[#FCD535]' : 'text-accent-red'}`}>
                         {getAllocation().total}%
                       </p>
                       {getAllocation().error && (
@@ -461,13 +461,13 @@ export default function TokenLaunchWizard() {
 
               <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2">
-                  <Rocket className="w-5 h-5 text-stellar-cyan" />
+                  <Rocket className="w-5 h-5 text-[#FCD535]" />
                   Liquidity Requirements
                 </h3>
 
                 <div className="space-y-2 mb-6">
                   <label className="flex items-center gap-2 text-sm font-medium text-eth-grey-medium">
-                    <Coins className="w-4 h-4 text-stellar-cyan" />
+                    <Coins className="w-4 h-4 text-[#FCD535]" />
                     Initial Liquidity (XLM) *
                     <div className="group relative">
                       <HelpCircle className="w-4 h-4 text-eth-grey cursor-help" />
@@ -480,26 +480,26 @@ export default function TokenLaunchWizard() {
                     type="number" 
                     value={formData.initialLiquidityXLM} 
                     onChange={(e) => setFormData({...formData, initialLiquidityXLM: e.target.value})} 
-                    className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg font-semibold" 
+                    className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg font-semibold" 
                     min="2000"
                     placeholder="2000"
                   />
                   <p className="text-xs text-eth-grey">Minimum: 2,000 XLM • No maximum limit</p>
                 </div>
 
-                <div className="bg-pro-dark rounded-lg p-4 border border-stellar-cyan/30">
+                <div className="bg-pro-dark rounded-lg p-4 border border-[#FCD535]/30">
                   <p className="text-sm font-medium text-white mb-2">Liquidity Pool Preview</p>
                   <div className="flex items-center justify-between">
                     <div className="text-center flex-1">
                       <p className="text-xs text-eth-grey mb-1">XLM</p>
-                      <p className="text-lg font-bold text-stellar-cyan">
+                      <p className="text-lg font-bold text-[#FCD535]">
                         {parseInt(formData.initialLiquidityXLM || '0').toLocaleString()}
                       </p>
                     </div>
                     <div className="text-2xl text-eth-grey">⇄</div>
                     <div className="text-center flex-1">
                       <p className="text-xs text-eth-grey mb-1">{formData.tokenSymbol || 'TOKEN'}</p>
-                      <p className="text-lg font-bold text-bitcoin-orange">
+                      <p className="text-lg font-bold text-#F7931A">
                         {getLiquidityTokens().toLocaleString()}
                       </p>
                     </div>
@@ -509,7 +509,7 @@ export default function TokenLaunchWizard() {
 
               <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2">
-                  <Lock className="w-5 h-5 text-bitcoin-orange" />
+                  <Lock className="w-5 h-5 text-#F7931A" />
                   Vesting & Lockup (Optional)
                 </h3>
 
@@ -519,7 +519,7 @@ export default function TokenLaunchWizard() {
                       type="checkbox"
                       checked={formData.vestingEnabled}
                       onChange={(e) => setFormData({...formData, vestingEnabled: e.target.checked})}
-                      className="w-5 h-5 rounded border-white/20 bg-pro-dark text-bitcoin-orange focus:ring-2 focus:ring-bitcoin-orange"
+                      className="w-5 h-5 rounded border-white/20 bg-pro-dark text-#F7931A focus:ring-2 focus:ring-#F7931A"
                     />
                     <span className="text-sm font-medium text-white">Enable vesting for creator allocation</span>
                   </label>
@@ -533,7 +533,7 @@ export default function TokenLaunchWizard() {
                         type="number" 
                         value={formData.vestingMonths} 
                         onChange={(e) => setFormData({...formData, vestingMonths: e.target.value})} 
-                        className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent" 
+                        className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent" 
                         min="1"
                         max="48"
                         placeholder="12"
@@ -556,9 +556,9 @@ export default function TokenLaunchWizard() {
               </div>
 
               {isCreating && creationStatus && (
-                <div className="bg-gradient-to-r from-stellar-cyan/20 to-bitcoin-orange/20 border-2 border-stellar-cyan/50 rounded-xl p-6 animate-pulse">
+                <div className="bg-gradient-to-r from-[#FCD535]/20 to-#F7931A/20 border-2 border-[#FCD535]/50 rounded-xl p-6 animate-pulse">
                   <div className="flex items-center gap-4">
-                    <Loader2 className="w-8 h-8 text-stellar-cyan animate-spin flex-shrink-0" />
+                    <Loader2 className="w-8 h-8 text-[#FCD535] animate-spin flex-shrink-0" />
                     <div className="flex-1">
                       <p className="text-lg font-semibold text-white mb-1">Processing...</p>
                       <p className="text-sm text-eth-grey-medium">{creationStatus}</p>
@@ -569,7 +569,7 @@ export default function TokenLaunchWizard() {
 
               <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-stellar-cyan" />
+                  <Calendar className="w-5 h-5 text-[#FCD535]" />
                   Event Duration
                 </h3>
 
@@ -587,7 +587,7 @@ export default function TokenLaunchWizard() {
                     type="number" 
                     value={formData.eventDurationDays} 
                     onChange={(e) => setFormData({...formData, eventDurationDays: e.target.value})} 
-                    className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:border-transparent text-lg font-semibold" 
+                    className="w-full bg-pro-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-eth-grey focus:outline-none focus:ring-2 focus:ring-#F7931A focus:border-transparent text-lg font-semibold" 
                     min="3"
                     max="7"
                     placeholder="7"
@@ -595,23 +595,23 @@ export default function TokenLaunchWizard() {
                   <p className="text-xs text-eth-grey">Minimum: 3 days • Maximum: 7 days</p>
                 </div>
 
-                <div className="bg-gradient-to-r from-stellar-cyan/10 to-bitcoin-orange/10 rounded-xl p-6 border border-stellar-cyan/30">
+                <div className="bg-gradient-to-r from-[#FCD535]/10 to-#F7931A/10 rounded-xl p-6 border border-[#FCD535]/30">
                   <p className="text-sm font-semibold text-white mb-4">What happens during the event?</p>
                   <ul className="space-y-3 text-sm text-eth-grey-medium">
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-stellar-cyan flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-[#FCD535] flex-shrink-0 mt-0.5" />
                       <span>Users join the airdrop and receive unique referral links</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-stellar-cyan flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-[#FCD535] flex-shrink-0 mt-0.5" />
                       <span>Each participant earns entries and gets referral rewards for bringing others</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-stellar-cyan flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-[#FCD535] flex-shrink-0 mt-0.5" />
                       <span>When event ends: DEX auto-launches & airdrop tokens become claimable</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-stellar-cyan flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-[#FCD535] flex-shrink-0 mt-0.5" />
                       <span>Airdrop distribution based on total entries and referral ranking</span>
                     </li>
                   </ul>
@@ -637,7 +637,7 @@ export default function TokenLaunchWizard() {
                     </div>
                     <div>
                       <p className="text-xs text-eth-grey mb-1">Event Duration</p>
-                      <p className="text-lg font-bold text-stellar-cyan">
+                      <p className="text-lg font-bold text-[#FCD535]">
                         {formData.eventDurationDays} days
                       </p>
                     </div>
@@ -646,13 +646,13 @@ export default function TokenLaunchWizard() {
                   <div className="space-y-4">
                     <div>
                       <p className="text-xs text-eth-grey mb-1">Airdrop Pool</p>
-                      <p className="text-lg font-bold text-stellar-cyan">
+                      <p className="text-lg font-bold text-[#FCD535]">
                         {formData.airdropPercent}% ({getAirdropTokens().toLocaleString()})
                       </p>
                     </div>
                     <div>
                       <p className="text-xs text-eth-grey mb-1">Liquidity Pool</p>
-                      <p className="text-lg font-bold text-bitcoin-orange">
+                      <p className="text-lg font-bold text-#F7931A">
                         {formData.liquidityPercent}% ({getLiquidityTokens().toLocaleString()})
                       </p>
                     </div>
@@ -668,7 +668,7 @@ export default function TokenLaunchWizard() {
                 <div className="mt-6 pt-6 border-t border-white/10">
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-eth-grey">Required Liquidity</p>
-                    <p className="text-xl font-bold text-stellar-cyan">
+                    <p className="text-xl font-bold text-[#FCD535]">
                       {parseInt(formData.initialLiquidityXLM || '0').toLocaleString()} XLM
                     </p>
                   </div>
@@ -689,7 +689,7 @@ export default function TokenLaunchWizard() {
             {step < 3 ? (
               <button
                 onClick={handleNext}
-                className="ml-auto flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-bitcoin-orange to-bitcoin-orange-light hover:from-bitcoin-orange-light hover:to-bitcoin-orange text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-lg shadow-bitcoin-orange/30"
+                className="ml-auto flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-#F7931A to-#F7931A-light hover:from-#F7931A-light hover:to-#F7931A text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-lg shadow-#F7931A/30"
               >
                 Next <ArrowRight className="w-5 h-5" />
               </button>
@@ -697,10 +697,10 @@ export default function TokenLaunchWizard() {
               <button
                 onClick={handleSubmit}
                 disabled={isCreating}
-                className={`ml-auto flex items-center gap-2 px-12 py-4 bg-gradient-to-r from-stellar-cyan to-bitcoin-orange text-white rounded-xl font-bold text-lg transition-all shadow-2xl shadow-stellar-cyan/40 ${
+                className={`ml-auto flex items-center gap-2 px-12 py-4 bg-gradient-to-r from-[#FCD535] to-#F7931A text-black rounded-xl font-bold text-lg transition-all shadow-2xl shadow-[#FCD535]/40 ${
                   isCreating
                     ? 'opacity-50 cursor-not-allowed'
-                    : 'hover:from-stellar-cyan/90 hover:to-bitcoin-orange/90 hover:scale-105'
+                    : 'hover:from-[#FCD535]/90 hover:to-#F7931A/90 hover:scale-105'
                 }`}
               >
                 {isCreating ? (

@@ -121,9 +121,9 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
   const perParticipantAllocation = Math.floor(parseInt(campaign.totalAirdrop.replace(/,/g, '')) / campaign.maxParticipants)
 
   const pieData = [
-    { name: 'Creator', value: campaign.allocation.creator, color: '#FFD700' },
-    { name: 'Airdrop Pool', value: campaign.allocation.airdrop, color: '#00D9FF' },
-    { name: 'Liquidity', value: 'liquidity' in campaign.allocation ? campaign.allocation.liquidity : ('referral' in campaign.allocation ? (campaign.allocation as any).referral : 20), color: '#9D4EDD' },
+    { name: 'Creator', value: campaign.allocation.creator, color: '#FCD535' },
+    { name: 'Airdrop Pool', value: campaign.allocation.airdrop, color: '#F7931A' },
+    { name: 'Liquidity', value: 'liquidity' in campaign.allocation ? campaign.allocation.liquidity : ('referral' in campaign.allocation ? (campaign.allocation as any).referral : 20), color: '#FCD535' },
   ]
 
   const generateUniqueReferralCode = () => {
@@ -213,7 +213,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
   return (
     <div className="min-h-screen py-12">
       {successMessage && (
-        <div className="fixed top-4 right-4 z-50 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-xl shadow-2xl shadow-green-500/50 animate-bounce">
+        <div className="fixed top-4 right-4 z-50 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black px-6 py-4 rounded-xl shadow-2xl shadow-[#F7931A]/50 animate-bounce font-semibold">
           {successMessage}
         </div>
       )}
@@ -246,7 +246,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               </div>
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400">Potential Earnings</span>
-                <span className="text-lg font-bold text-cyan-400">{perParticipantAllocation.toLocaleString()} {campaign.symbol}</span>
+                <span className="text-lg font-bold text-[#F7931A]">{perParticipantAllocation.toLocaleString()} {campaign.symbol}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Tasks</span>
@@ -263,7 +263,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               </button>
               <button
                 onClick={confirmJoin}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-cyan-500/50 transition-all hover:scale-105"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-semibold shadow-lg hover:shadow-[#F7931A]/50 transition-all hover:scale-105"
               >
                 Confirm & Join
               </button>
@@ -284,7 +284,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                   <div className="flex items-center gap-3 mb-2">
                     <h1 className="text-4xl font-bold text-white">{campaign.name}</h1>
                     {hasJoined && (
-                      <span className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 text-sm rounded-lg border border-green-500/30 font-semibold">
+                      <span className="px-3 py-1 bg-gradient-to-r from-[#FCD535]/20 to-[#F7931A]/20 text-[#FCD535] text-sm rounded-lg border border-[#FCD535]/30 font-semibold">
                         ✓ Joined
                       </span>
                     )}
@@ -294,25 +294,25 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                     {campaign.socialLinks.twitter && (
                       <a href={campaign.socialLinks.twitter} target="_blank" rel="noopener noreferrer" 
                          className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all hover:scale-110 group">
-                        <Twitter className="w-5 h-5 text-cyan-400 group-hover:text-cyan-300" />
+                        <Twitter className="w-5 h-5 text-[#F7931A] group-hover:text-[#FCD535]" />
                       </a>
                     )}
                     {campaign.socialLinks.discord && (
                       <a href={campaign.socialLinks.discord} target="_blank" rel="noopener noreferrer"
                          className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all hover:scale-110 group">
-                        <MessageCircle className="w-5 h-5 text-purple-400 group-hover:text-purple-300" />
+                        <MessageCircle className="w-5 h-5 text-[#F7931A] group-hover:text-[#FCD535]" />
                       </a>
                     )}
                     {campaign.socialLinks.telegram && (
                       <a href={campaign.socialLinks.telegram} target="_blank" rel="noopener noreferrer"
                          className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all hover:scale-110 group">
-                        <Send className="w-5 h-5 text-blue-400 group-hover:text-blue-300" />
+                        <Send className="w-5 h-5 text-[#FCD535] group-hover:text-[#F7931A]" />
                       </a>
                     )}
                     {campaign.socialLinks.website && (
                       <a href={campaign.socialLinks.website} target="_blank" rel="noopener noreferrer"
                          className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all hover:scale-110 group">
-                        <Globe className="w-5 h-5 text-green-400 group-hover:text-green-300" />
+                        <Globe className="w-5 h-5 text-[#FCD535] group-hover:text-[#F7931A]" />
                       </a>
                     )}
                   </div>
@@ -324,9 +324,9 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                   <div className="text-sm text-gray-400 mb-1">Total Supply</div>
                   <div className="text-xl font-bold text-white">{campaign.totalSupply}</div>
                 </div>
-                <div className="bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 rounded-xl p-4 border border-cyan-500/20">
+                <div className="bg-gradient-to-br from-[#F7931A]/10 to-[#F7931A]/5 rounded-xl p-4 border border-[#F7931A]/20">
                   <div className="text-sm text-gray-400 mb-1">Remaining Tokens</div>
-                  <div className="text-xl font-bold text-cyan-400">{remainingTokens.toLocaleString()}</div>
+                  <div className="text-xl font-bold text-[#F7931A]">{remainingTokens.toLocaleString()}</div>
                 </div>
                 <div className="bg-gradient-to-br from-lumina-gold/10 to-lumina-gold/5 rounded-xl p-4 border border-lumina-gold/20">
                   <div className="text-sm text-gray-400 mb-1">Per Participant</div>
@@ -397,13 +397,13 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               {!hasJoined && connected && (
                 <button 
                   onClick={handleJoinClick}
-                  className="w-full py-4 mb-6 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all hover:scale-[1.02] relative overflow-hidden group"
+                  className="w-full py-4 mb-6 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg shadow-2xl hover:shadow-[#F7931A]/50 transition-all hover:scale-[1.02] relative overflow-hidden group"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Coins className="w-5 h-5" />
                     Join with {campaign.joinFee} XLM
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#F7931A] to-[#FCD535] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
               )}
 
@@ -415,16 +415,16 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                 {tasks.map(task => (
                   <div key={task.id} className={`p-5 rounded-xl border transition-all ${
                     task.completed 
-                      ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/10 border-green-500/40 shadow-lg shadow-green-500/20' 
+                      ? 'bg-gradient-to-r from-[#FCD535]/20 to-[#F7931A]/10 border-[#FCD535]/40 shadow-lg shadow-[#FCD535]/20' 
                       : 'bg-white/5 border-white/10 hover:border-white/20'
                   }`}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`p-3 rounded-lg ${
-                          task.completed ? 'bg-green-500/20' : 'bg-white/10'
+                          task.completed ? 'bg-[#FCD535]/20' : 'bg-white/10'
                         }`}>
                           {task.completed ? (
-                            <CheckCircle2 className="w-6 h-6 text-green-400" />
+                            <CheckCircle2 className="w-6 h-6 text-[#FCD535]" />
                           ) : (
                             <div className="text-gray-400">{getTaskIcon(task.type)}</div>
                           )}
@@ -440,7 +440,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                       {!task.completed && hasJoined && (
                         <button 
                           onClick={() => handleTaskComplete(task.id)}
-                          className="px-6 py-2.5 bg-starglow-gradient text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all hover:scale-105"
+                          className="px-6 py-2.5 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-lg font-semibold hover:shadow-lg hover:shadow-[#F7931A]/30 transition-all hover:scale-105"
                         >
                           Complete
                         </button>
@@ -451,7 +451,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                         </div>
                       )}
                       {task.completed && (
-                        <div className="px-4 py-2 bg-green-500/20 text-green-400 rounded-lg font-semibold border border-green-500/30">
+                        <div className="px-4 py-2 bg-[#FCD535]/20 text-[#FCD535] rounded-lg font-semibold border border-[#FCD535]/30">
                           Completed ✓
                         </div>
                       )}
@@ -461,9 +461,9 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               </div>
             </div>
 
-            <div className="glass-card p-6 rounded-xl border border-purple-500/20 shadow-lg shadow-purple-500/10">
+            <div className="glass-card p-6 rounded-xl border border-[#F7931A]/20 shadow-lg shadow-[#F7931A]/10">
               <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                <Share2 className="w-5 h-5 text-purple-400" />
+                <Share2 className="w-5 h-5 text-[#F7931A]" />
                 Referral Program
               </h3>
               <p className="text-gray-300 mb-4">Share your referral link and earn 50 {campaign.symbol} tokens for each friend who joins!</p>
@@ -476,7 +476,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               <button 
                 onClick={generateReferralLink} 
                 disabled={!connected}
-                className={`flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white rounded-lg hover:from-purple-500/30 hover:to-pink-500/30 border border-purple-500/30 transition-all mb-3 w-full justify-center font-semibold ${!connected ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-[#F7931A]/20 to-[#FCD535]/20 text-white rounded-lg hover:from-[#F7931A]/30 hover:to-[#FCD535]/30 border border-[#F7931A]/30 transition-all mb-3 w-full justify-center font-semibold ${!connected ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copied ? 'Copied!' : 'Generate & Copy Referral Link'}
@@ -492,7 +492,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
           <div className="space-y-6">
             <div className="glass-card p-6 rounded-xl border border-white/10 shadow-xl">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <Users className="w-5 h-5 text-cyan-400" />
+                <Users className="w-5 h-5 text-[#F7931A]" />
                 Campaign Info
               </h3>
               <div className="space-y-3 text-sm">
@@ -535,13 +535,13 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
                   Connect wallet via top navigation to join
                 </div>
               ) : hasClaimed ? (
-                <div className="w-full px-4 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 rounded-lg font-semibold border border-green-500/30 text-center">
+                <div className="w-full px-4 py-3 bg-gradient-to-r from-[#FCD535]/20 to-[#F7931A]/20 text-[#FCD535] rounded-lg font-semibold border border-[#FCD535]/30 text-center">
                   ✓ Tokens Claimed!
                 </div>
               ) : canClaimTokens ? (
                 <button 
                   onClick={handleClaim} 
-                  className="w-full px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-green-500/50 transition-all hover:scale-[1.02] animate-pulse"
+                  className="w-full px-4 py-3 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-lg font-semibold shadow-lg hover:shadow-[#FCD535]/50 transition-all hover:scale-[1.02] animate-pulse"
                 >
                   🎉 Claim Your Tokens Now!
                 </button>

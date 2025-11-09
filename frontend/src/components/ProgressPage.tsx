@@ -117,7 +117,7 @@ export default function ProgressPage() {
             <p className="text-eth-grey-medium mb-8">You haven't joined any airdrop events yet</p>
             <a
               href="/airdrops"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-stellar-cyan to-bitcoin-orange hover:from-stellar-cyan/90 hover:to-bitcoin-orange/90 text-white rounded-xl font-bold transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FCD535] to-#F7931A hover:from-[#FCD535]/90 hover:to-#F7931A/90 text-black rounded-xl font-bold transition-all hover:scale-105"
             >
               Browse Active Airdrops
               <ExternalLink className="w-5 h-5" />
@@ -145,7 +145,7 @@ export default function ProgressPage() {
                 <img 
                   src={project.projectLogo} 
                   alt={project.projectName}
-                  className="w-20 h-20 rounded-xl border-2 border-stellar-cyan shadow-lg"
+                  className="w-20 h-20 rounded-xl border-2 border-[#FCD535] shadow-lg"
                 />
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
@@ -153,10 +153,10 @@ export default function ProgressPage() {
                     <span className="text-xl text-eth-grey">{project.projectSymbol}</span>
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
                       project.eventStatus === 'active' 
-                        ? 'bg-stellar-cyan/20 text-stellar-cyan border border-stellar-cyan/40'
+                        ? 'bg-[#FCD535]/20 text-[#FCD535] border border-[#FCD535]/40'
                         : project.eventStatus === 'ended'
-                        ? 'bg-bitcoin-orange/20 text-bitcoin-orange border border-bitcoin-orange/40'
-                        : 'bg-green-500/20 text-green-400 border border-green-500/40'
+                        ? 'bg-#F7931A/20 text-#F7931A border border-#F7931A/40'
+                        : 'bg-[#FCD535]/20 text-[#FCD535] border border-[#FCD535]/40'
                     }`}>
                       {project.eventStatus === 'active' ? `${project.daysRemaining} days left` : 
                        project.eventStatus === 'ended' ? 'Event Ended' : 'Launched'}
@@ -171,7 +171,7 @@ export default function ProgressPage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div className="bg-pro-dark-lighter p-4 rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-4 h-4 text-stellar-cyan" />
+                    <Sparkles className="w-4 h-4 text-[#FCD535]" />
                     <p className="text-sm text-eth-grey">Your Entries</p>
                   </div>
                   <p className="text-3xl font-bold text-white">{project.userEntries}</p>
@@ -182,7 +182,7 @@ export default function ProgressPage() {
 
                 <div className="bg-pro-dark-lighter p-4 rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
-                    <Users className="w-4 h-4 text-bitcoin-orange" />
+                    <Users className="w-4 h-4 text-#F7931A" />
                     <p className="text-sm text-eth-grey">Referrals</p>
                   </div>
                   <p className="text-3xl font-bold text-white">{project.referralCount}</p>
@@ -191,7 +191,7 @@ export default function ProgressPage() {
 
                 <div className="bg-pro-dark-lighter p-4 rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
-                    <Trophy className="w-4 h-4 text-stellar-cyan" />
+                    <Trophy className="w-4 h-4 text-[#FCD535]" />
                     <p className="text-sm text-eth-grey">Ranking</p>
                   </div>
                   <p className="text-3xl font-bold text-white">#{project.referralRank}</p>
@@ -200,12 +200,12 @@ export default function ProgressPage() {
 
                 <div className="bg-pro-dark-lighter p-4 rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
-                    <Gift className="w-4 h-4 text-bitcoin-orange" />
+                    <Gift className="w-4 h-4 text-#F7931A" />
                     <p className="text-sm text-eth-grey">
                       {project.eventStatus === 'active' ? 'Estimated' : 'Claimable'}
                     </p>
                   </div>
-                  <p className="text-3xl font-bold text-stellar-cyan">
+                  <p className="text-3xl font-bold text-[#FCD535]">
                     {project.eventStatus === 'active' 
                       ? project.estimatedTokens.toLocaleString()
                       : project.claimableTokens.toLocaleString()
@@ -216,9 +216,9 @@ export default function ProgressPage() {
               </div>
 
               {project.eventStatus === 'active' && (
-                <div className="bg-gradient-to-r from-stellar-cyan/10 to-bitcoin-orange/10 p-6 rounded-xl border border-stellar-cyan/30">
+                <div className="bg-gradient-to-r from-[#FCD535]/10 to-#F7931A/10 p-6 rounded-xl border border-[#FCD535]/30">
                   <div className="flex items-start gap-4">
-                    <TrendingUp className="w-6 h-6 text-stellar-cyan flex-shrink-0 mt-1" />
+                    <TrendingUp className="w-6 h-6 text-[#FCD535] flex-shrink-0 mt-1" />
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-white mb-3">Your Referral Link</h3>
                       <div className="flex items-center gap-3 mb-4">
@@ -230,7 +230,7 @@ export default function ProgressPage() {
                         />
                         <button
                           onClick={() => copyReferralLink(project)}
-                          className="px-6 py-3 bg-stellar-cyan hover:bg-stellar-cyan/90 text-pro-dark rounded-lg font-semibold transition-all flex items-center gap-2"
+                          className="px-6 py-3 bg-[#FCD535] hover:bg-[#FCD535]/90 text-black rounded-lg font-semibold transition-all flex items-center gap-2"
                         >
                           {copiedCode === project.referralCode ? (
                             <>
@@ -252,7 +252,7 @@ export default function ProgressPage() {
               )}
 
               {project.eventStatus === 'ended' && !project.claimed && project.claimableTokens > 0 && (
-                <div className="bg-gradient-to-r from-green-500/10 to-stellar-cyan/10 p-6 rounded-xl border border-green-500/30">
+                <div className="bg-gradient-to-r from-[#FCD535]/10 to-[#F7931A]/10 p-6 rounded-xl border border-[#FCD535]/30">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Rewards Ready to Claim!</h3>
@@ -262,7 +262,7 @@ export default function ProgressPage() {
                     </div>
                     <button
                       onClick={() => handleClaim(project.projectId)}
-                      className="px-8 py-4 bg-gradient-to-r from-green-500 to-stellar-cyan hover:from-green-500/90 hover:to-stellar-cyan/90 text-white rounded-xl font-bold transition-all hover:scale-105 shadow-lg"
+                      className="px-8 py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] hover:from-[#FCD535]/90 hover:to-[#F7931A]/90 text-black rounded-xl font-bold transition-all hover:scale-105 shadow-lg"
                     >
                       Claim Tokens
                     </button>
@@ -273,7 +273,7 @@ export default function ProgressPage() {
               {project.claimed && (
                 <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                   <div className="flex items-center gap-3 text-eth-grey">
-                    <Check className="w-6 h-6 text-stellar-cyan" />
+                    <Check className="w-6 h-6 text-[#FCD535]" />
                     <p className="text-sm">
                       You've claimed your {project.claimableTokens.toLocaleString()} {project.projectSymbol} tokens
                     </p>

@@ -96,11 +96,11 @@ export default function DocumentationPage() {
                 </div>
               </div>
 
-              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mt-4">
-                <h4 className="font-semibold text-green-400 mb-2">Early User Bonus</h4>
+              <div className="bg-[#FCD535]/10 border border-[#FCD535]/30 rounded-lg p-4 mt-4">
+                <h4 className="font-semibold text-[#FCD535] mb-2">Early User Bonus</h4>
                 <p className="text-sm text-gray-300">
-                  The first <strong className="text-green-400">20,000 users</strong> receive a one-time bonus of{' '}
-                  <strong className="text-green-400">10 free STAR points</strong> when they join!
+                  The first <strong className="text-[#FCD535]">20,000 users</strong> receive a one-time bonus of{' '}
+                  <strong className="text-[#FCD535]">10 free STAR points</strong> when they join!
                 </p>
               </div>
             </div>
@@ -111,10 +111,10 @@ export default function DocumentationPage() {
               <img src={slfCoin3D} alt="SLF" className="w-12 h-12" />
               SLF Token Tokenomics
             </h2>
-            <div className="bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-purple-500/30 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-[#F7931A]/10 to-[#FCD535]/10 border border-[#F7931A]/30 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
                 <div className="flex items-center justify-center">
-                  <img src={slfCoin3D} alt="SLF 3D Coin" className="w-64 h-64 object-contain drop-shadow-2xl" />
+                  <img src={slfCoin3D} alt="SLF 3D Coin" className="w-64 h-64 object-contain drop-shadow-2xl animate-pulse" />
                 </div>
                 
                 <div>
@@ -124,9 +124,9 @@ export default function DocumentationPage() {
                       <Pie
                         data={[
                           { name: 'STAR Holders', value: 60, color: '#FCD535' },
-                          { name: 'Listing Reserve', value: 15, color: '#8B5CF6' },
-                          { name: 'Team (24mo vesting)', value: 15, color: '#3B82F6' },
-                          { name: 'Launch', value: 5, color: '#10B981' },
+                          { name: 'Listing Reserve', value: 15, color: '#F7931A' },
+                          { name: 'Team (24mo vesting)', value: 15, color: '#FCD535' },
+                          { name: 'Launch', value: 5, color: '#F7931A' },
                           { name: 'Other', value: 5, color: '#6B7280' },
                         ]}
                         cx="50%"
@@ -139,9 +139,9 @@ export default function DocumentationPage() {
                       >
                         {[
                           { name: 'STAR Holders', value: 60, color: '#FCD535' },
-                          { name: 'Listing Reserve', value: 15, color: '#8B5CF6' },
-                          { name: 'Team (24mo vesting)', value: 15, color: '#3B82F6' },
-                          { name: 'Launch', value: 5, color: '#10B981' },
+                          { name: 'Listing Reserve', value: 15, color: '#F7931A' },
+                          { name: 'Team (24mo vesting)', value: 15, color: '#FCD535' },
+                          { name: 'Launch', value: 5, color: '#F7931A' },
                           { name: 'Other', value: 5, color: '#6B7280' },
                         ].map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
@@ -150,7 +150,7 @@ export default function DocumentationPage() {
                       <Tooltip 
                         contentStyle={{ 
                           backgroundColor: '#1E2329', 
-                          border: '1px solid #2B3139',
+                          border: '1px solid #F7931A',
                           borderRadius: '8px',
                           color: '#fff'
                         }}
@@ -237,13 +237,13 @@ export default function DocumentationPage() {
                   </div>
                 </div>
 
-                <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4 mt-6">
-                  <h4 className="font-semibold text-purple-400 mb-2">Distribution at TGE</h4>
+                <div className="bg-[#F7931A]/10 border border-[#F7931A]/30 rounded-lg p-4 mt-6">
+                  <h4 className="font-semibold text-[#FCD535] mb-2">Distribution at TGE</h4>
                   <p className="text-sm text-gray-300">
                     When the SLF token launches, the 60M tokens allocated to STAR holders will be distributed 
                     proportionally based on each user's share of total STAR points.
                   </p>
-                  <p className="text-sm text-purple-300 mt-2">
+                  <p className="text-sm text-[#FCD535] mt-2">
                     <strong>Formula:</strong> Your SLF = (Your STAR / Total STAR) × 60,000,000
                   </p>
                 </div>
@@ -341,7 +341,7 @@ export default function DocumentationPage() {
             </div>
           </section>
 
-          <section className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-purple-500/30 rounded-lg p-6">
+          <section className="bg-gradient-to-r from-[#F7931A]/10 to-[#FCD535]/10 border border-[#F7931A]/30 rounded-lg p-6">
             <h3 className="text-xl font-bold text-white mb-4">Need Help?</h3>
             <p className="text-gray-300 mb-4">
               Join our community channels for support, updates, and discussions:

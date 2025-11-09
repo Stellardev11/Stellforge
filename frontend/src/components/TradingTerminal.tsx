@@ -84,7 +84,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
             {/* Progress Bar */}
             <div className="relative h-2 bg-white/5 rounded-full overflow-hidden">
               <div 
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all"
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#F7931A] to-[#FCD535] rounded-full transition-all"
                 style={{ width: `${token.launchProgress}%` }}
               />
             </div>
@@ -93,7 +93,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
 
         {/* Tabs */}
         <div className="px-4 flex gap-4 text-sm border-b border-white/10">
-          <button className="pb-2 border-b-2 border-emerald-500 font-medium">Trade Display</button>
+          <button className="pb-2 border-b-2 border-[#FCD535] font-medium">Trade Display</button>
           <button className="pb-2 text-gray-400 hover:text-white transition-colors">Price/MCap</button>
         </div>
       </div>
@@ -118,8 +118,8 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#10b981" stopOpacity={0.3} />
-                    <stop offset="100%" stopColor="#10b981" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#F7931A" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#F7931A" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis 
@@ -137,7 +137,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
                 <Area
                   type="monotone"
                   dataKey="price"
-                  stroke="#10b981"
+                  stroke="#F7931A"
                   strokeWidth={2}
                   fill="url(#priceGradient)"
                 />
@@ -179,7 +179,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
           </div>
           <div className="bg-[#1a1a1a] rounded-lg p-3 border border-white/10">
             <p className="text-xs text-gray-400 mb-1">1h</p>
-            <p className="text-base font-semibold text-emerald-400">+{token.change24h.toFixed(2)}%</p>
+            <p className="text-base font-semibold text-[#FCD535]">+{token.change24h.toFixed(2)}%</p>
           </div>
         </div>
 
@@ -193,7 +193,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
             </div>
             <div className="relative h-3 bg-white/5 rounded-full overflow-hidden">
               <div 
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-500 via-cyan-400 to-emerald-500 rounded-full"
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#F7931A] to-[#FCD535] rounded-full"
                 style={{ width: `${token.launchProgress}%` }}
               />
             </div>
@@ -210,7 +210,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
               onClick={() => setTradeType('buy')}
               className={`flex-1 py-2.5 rounded-lg font-semibold transition-all ${
                 tradeType === 'buy'
-                  ? 'bg-emerald-500 text-black'
+                  ? 'bg-[#FCD535] text-black'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10'
               }`}
             >
@@ -236,7 +236,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
                 value={tradeAmount}
                 onChange={(e) => setTradeAmount(e.target.value)}
                 placeholder="0.00"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base focus:outline-none focus:border-[#FCD535]/50 focus:ring-1 focus:ring-[#FCD535]/50"
               />
             </div>
 
@@ -252,7 +252,7 @@ export default function TradingTerminal({ tokenId, onBack }: TradingTerminalProp
               ))}
             </div>
 
-            <button className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-lg text-base transition-all active:scale-98">
+            <button className="w-full py-4 bg-[#FCD535] hover:bg-[#F7931A] text-black font-bold rounded-lg text-base transition-all active:scale-98">
               Log in to trade
             </button>
 

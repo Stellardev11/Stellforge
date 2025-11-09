@@ -1,363 +1,402 @@
-# StellForge - Professional DeFi Platform on Stellar
+# StellForge - GameFi Meets DeFi on Stellar
 
-**A complete decentralized finance platform for creating tokens, trading assets, and managing liquidity on the Stellar blockchain.**
+**The first GameFi + DeFi platform on Stellar where users earn STAR loyalty points by depositing XLM, participate in token launches, and receive 60% of SLF tokens at TGE.**
 
-![Stellar Mainnet](https://img.shields.io/badge/Stellar-Mainnet-08B5E5?style=flat-square)
+![Stellar Mainnet](https://img.shields.io/badge/Stellar-Mainnet-FCD535?style=flat-square)
+![STAR Points](https://img.shields.io/badge/STAR-1%20XLM%20%3D%2010%20STAR-F7931A?style=flat-square)
 ![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success?style=flat-square)
 
 ---
 
-## What is StellForge?
+## What Makes StellForge Different?
 
-StellForge is your all-in-one DeFi platform built on Stellar blockchain. Whether you're looking to swap tokens, provide liquidity to earn fees, or launch your own token project with airdrops, StellForge makes it simple and secure.
+**StellForge combines the best of GameFi and DeFi** - earn loyalty points through platform activity, participate in viral token launches, swap assets, and prepare for the SLF token generation event where **60% of all SLF tokens go to STAR holders**.
 
-**Key Benefits:**
-- Trade 50+ verified Stellar assets with best-price execution
-- Earn passive income by providing liquidity to trading pools
-- Launch token projects with built-in airdrop distribution
-- Connect any Stellar wallet (Freighter, xBull, and more)
-- All transactions happen directly on Stellar mainnet - your keys, your coins
+### 🌟 The STAR Points System
 
----
+**STAR (Stellar Rewards)** is your loyalty score on StellForge. The more you participate, the more STAR you earn, and the more SLF tokens you'll receive at TGE.
 
-## Core Features
+**How to Earn STAR Points:**
+- **Mint STAR**: Deposit 1 XLM → Get 10 STAR instantly (non-transferable)
+- **Refer Friends**: Earn 5% of your referrals' STAR points
+- **Join Airdrops**: Participate in token launches to earn bonus STAR
+- **Complete Tasks**: Social tasks and platform activities reward additional STAR
+- **Stay Active**: Regular engagement increases your STAR multiplier
 
-### 🔄 Token Swaps
+**Why STAR Matters:**
+- **TGE Allocation**: 60M SLF (60% of total supply) distributed to STAR holders
+- **Fair Distribution**: Your share = Your STAR / Total STAR points
+- **No Whales**: Points-based system prevents unfair concentration
+- **Early Advantage**: Early adopters accumulate more STAR before TGE
 
-Trade any Stellar asset with the best possible price through intelligent pathfinding.
-
-**What You Can Do:**
-- Swap between 50+ verified Stellar assets (XLM, USDC, AQUA, and more)
-- Get instant price quotes before you trade
-- Set your own slippage tolerance (0.1% - 50%)
-- Track all transactions on Stellar Expert blockchain explorer
-- See real-time balance updates after every swap
-
-**How It Works:**
-1. Connect your Stellar wallet
-2. Select the tokens you want to swap (from → to)
-3. Enter the amount and review the quote
-4. Confirm the transaction in your wallet
-5. Done! Your new tokens appear in your balance
-
-**Smart Features:**
-- Multi-hop routing finds the best price across all liquidity sources
-- Slippage protection ensures you get the price you expect
-- Real-time quotes from Stellar DEX via Horizon API
-- Supports both orderbook and liquidity pool trading
+**Example:**
+- You deposit 100 XLM → Get 1,000 STAR
+- Refer 5 friends who mint 50 XLM each → Get 125 bonus STAR (5% of 2,500)
+- Join 3 airdrops → Get 300 bonus STAR
+- **Total: 1,425 STAR points**
+- At TGE: If total STAR = 1M, you receive (1,425/1,000,000) × 60M = **85,500 SLF tokens**
 
 ---
 
-### 💧 Liquidity Pools
+## Platform Features
 
-Provide liquidity to trading pools and earn a share of trading fees.
+### 🎮 GameFi Features
 
-**What You Can Do:**
-- Browse active liquidity pools on Stellar
-- Add liquidity by depositing balanced amounts of two assets
-- Earn 0.3% fees on every trade in your pool
-- Track all your liquidity positions in one place
-- Remove liquidity anytime with slippage protection
+#### STAR Points Dashboard
+Track your loyalty score, referral network, and projected SLF allocation:
+- **Real-time STAR balance** with earning history
+- **Referral leaderboard** showing top earners
+- **TGE calculator** estimating your SLF token allocation
+- **Achievement system** with bonus STAR rewards
+- **Tier progression** unlocking special benefits
 
-**How It Works:**
-1. Choose a liquidity pool (e.g., XLM/USDC)
-2. Deposit equal value of both tokens
-3. Receive LP (Liquidity Provider) shares
-4. Earn passive income from trading fees
-5. Withdraw anytime by burning your LP shares
+#### Viral Token Launches
+Create or join community-driven token projects:
+- **Launch tokens** with built-in airdrop campaigns
+- **Referral mechanics** - Every participant gets a unique link
+- **Task-based distribution** - Social engagement = more tokens
+- **Auto-DEX listing** - Liquidity launches when campaign ends
+- **Fair allocation** - Distribution based on entries and referrals
 
-**Key Features:**
-- Real-time pool analytics (TVL, reserves, share prices)
-- Automatic trustline creation for LP tokens
-- Position tracking shows your share of each pool
-- Calculate exact amounts before adding/removing liquidity
+#### Social Quests
+Complete tasks to earn STAR and tokens:
+- Follow project socials (Twitter, Discord, Telegram)
+- Share referral links and grow your network
+- Participate in community discussions
+- Create content about projects you support
 
----
+### 💱 DeFi Features
 
-### 🚀 Token Projects & Airdrops
+#### Lightning Swap
+Trade 50+ verified Stellar assets instantly:
+- **Best price execution** through multi-hop pathfinding
+- **Real-time quotes** from Stellar DEX
+- **Slippage protection** (0.1% - 50% tolerance)
+- **Instant settlement** in 3-5 seconds
+- **Low fees** (~0.01 XLM per transaction)
 
-Launch your own token and distribute it to your community through task-based airdrops.
-
-**What You Can Do:**
-- Create custom tokens on Stellar with name, symbol, and supply
-- Configure token allocation (team, airdrop, liquidity)
-- Set up airdrop campaigns with social tasks
-- Track participant progress and reward distribution
-- Build engaged communities before token launch
-
-**Token Creation Wizard:**
-1. **Token Details**: Set name, symbol, total supply, and branding
-2. **Allocation**: Decide percentages for team, airdrop, and liquidity
-3. **Airdrop Config**: Define tasks and rewards for community participation
-
-**Use Cases:**
-- Fair token launches with community distribution
-- Building social engagement before DEX listing
-- Rewarding early supporters and contributors
-- Creating transparent, verifiable token allocations
+#### Liquidity Pools
+Provide liquidity and earn trading fees:
+- **Add liquidity** to active pools (XLM/USDC, etc.)
+- **Earn 0.3% fees** on every trade in your pool
+- **Track positions** with real-time analytics
+- **Remove anytime** with slippage protection
 
 ---
 
-## Who Should Use StellForge?
+## SLF Tokenomics
 
-### 💱 Traders
-- Swap Stellar assets at the best available prices
-- Access deep liquidity across orderbooks and pools
-- Monitor real-time quotes and execute trades instantly
-- Low fees and fast settlement on Stellar blockchain
+**Total Supply**: 100,000,000 SLF
 
-### 💰 Liquidity Providers
-- Earn passive income from trading fees (0.3% per trade)
-- Diversify across multiple liquidity pools
-- Track performance of all your positions
-- Withdraw funds anytime without lock-up periods
+**Allocation:**
+- **60% (60M)** → STAR Holders at TGE 🌟
+- **20% (20M)** → Liquidity & DEX Launch
+- **10% (10M)** → Team (vested over 24 months)
+- **10% (10M)** → Treasury & Ecosystem Development
 
-### 🎯 Token Creators
-- Launch fair token distributions with airdrops
-- Build engaged communities through task-based rewards
-- Create transparent allocations with on-chain verification
-- Manage entire token lifecycle from creation to trading
+**STAR to SLF Conversion:**
+- Your SLF = (Your STAR / Total STAR) × 60,000,000
+- Example: 1,000 STAR out of 1M total = 60,000 SLF
+- The earlier you earn STAR, the bigger your share
 
-### 🌐 Stellar Users
-- All-in-one platform for DeFi on Stellar
-- No need for multiple apps or interfaces
-- Seamless wallet integration
-- Professional UX matching centralized exchange quality
+**Token Utility:**
+- **Governance**: Vote on platform decisions
+- **Fee Discounts**: Reduced trading fees
+- **Staking Rewards**: Earn yield on SLF holdings
+- **Premium Features**: Access advanced trading tools
+- **Airdrop Boosts**: Increased allocation in token launches
 
 ---
 
-## Why Stellar?
+## Why StellForge?
 
-StellForge is built on the Stellar blockchain because it offers:
+### For STAR Accumulators
+- **No investment required**: Start with just 1 XLM
+- **Referral multiplier**: Build passive STAR income
+- **Early mover advantage**: More STAR before TGE
+- **Fair distribution**: Points system prevents whales
+- **Transparent allocation**: On-chain verification
 
-- **Fast Transactions**: 3-5 second settlement times
-- **Low Fees**: Fractions of a penny per transaction
-- **Built-in DEX**: Native orderbook and liquidity pools
-- **Asset Issuance**: Easy token creation without smart contracts
-- **Proven Network**: Billions in daily transaction volume
-- **Eco-Friendly**: Energy-efficient consensus (no mining)
+### For Token Launchers
+- **Viral growth mechanics**: Referral system built-in
+- **Engaged community**: Task-based distribution
+- **Instant DEX listing**: Auto-launch when event ends
+- **Fair token allocation**: Community, team, liquidity
+- **Full transparency**: All on Stellar blockchain
 
----
+### For Traders
+- **Best prices**: Multi-hop pathfinding
+- **Deep liquidity**: Access all Stellar DEX sources
+- **Fast execution**: 3-5 second settlement
+- **Low fees**: Fractions of a penny
+- **Professional UX**: CEX-quality interface
 
-## Supported Assets
-
-StellForge integrates with 50+ verified Stellar assets, including:
-
-| Asset | Name | Issuer Domain |
-|-------|------|---------------|
-| **XLM** | Stellar Lumens | stellar.org |
-| **USDC** | USD Coin | centre.io |
-| **AQUA** | Aquarius | aqua.network |
-| **yUSDC** | Ultra Stellar USDC | ultrastella.com |
-| **USDT** | Tether | tether.to |
-
-Plus dozens more including yXLM, ARST, BTC, ETH-wrapped assets, and community tokens.
-
-**All assets feature:**
-- Authentic logos from issuer TOML files
-- Real-time pricing and liquidity data
-- Verified issuer information
-- Direct links to asset details on Stellar Expert
-
----
-
-## Security & Trust
-
-### Your Keys, Your Assets
-- StellForge never has access to your private keys
-- All transactions are signed in your own Stellar wallet
-- No deposits, no custody - trade directly from your wallet
-
-### Open & Transparent
-- All code is open source and auditable
-- Transactions execute on public Stellar blockchain
-- Real-time verification on Stellar Expert block explorer
-
-### Battle-Tested Infrastructure
-- Built on Stellar's production-grade Horizon API
-- TypeScript throughout for type safety and reliability
-- Comprehensive error handling and input validation
-- Slippage protection on all trades
+### For DeFi Users
+- **All-in-one platform**: Swap, pool, launch, earn
+- **Non-custodial**: Your keys, your assets
+- **Battle-tested**: Built on Stellar's proven infrastructure
+- **Open source**: Auditable and transparent
+- **Mobile-friendly**: Trade from anywhere
 
 ---
 
 ## Getting Started
 
 ### 1. Get a Stellar Wallet
-Download one of these wallets:
-- [Freighter](https://www.freighter.app/) - Browser extension (recommended)
-- [xBull](https://xbull.app/) - Mobile and browser
-- [Lobstr](https://lobstr.co/) - Mobile wallet
+Download a compatible wallet:
+- **[Freighter](https://www.freighter.app/)** - Browser extension (recommended)
+- **[xBull](https://xbull.app/)** - Mobile and browser
+- **[Lobstr](https://lobstr.co/)** - Mobile wallet
 
-### 2. Fund Your Wallet
+### 2. Fund Your Wallet with XLM
 - Purchase XLM on any exchange (Coinbase, Kraken, Binance)
-- Transfer XLM to your Stellar wallet address
-- You'll need a small amount for fees (0.01 XLM per transaction)
+- Send to your Stellar wallet address
+- Keep some XLM for network fees (0.01 XLM per transaction)
 
 ### 3. Connect to StellForge
-- Visit the StellForge app
-- Click "Connect Wallet" in the top right
-- Choose your wallet and approve the connection
-- Start trading!
+- Visit StellForge app
+- Click "Connect Wallet"
+- Approve connection in your wallet
 
-### 4. First Swap
-- Go to the "Swap" tab
-- Select tokens to swap (e.g., XLM → USDC)
-- Enter amount and review the quote
-- Click "Swap" and confirm in your wallet
-- Done! View your transaction on Stellar Expert
+### 4. Mint Your First STAR Points
+- Go to "Points Dashboard"
+- Click "Mint STAR"
+- Deposit XLM (1 XLM = 10 STAR)
+- Receive instant STAR points
+
+### 5. Start Earning More STAR
+- **Copy your referral link** - Share with friends
+- **Join active airdrops** - Participate in token launches
+- **Complete social tasks** - Follow, share, engage
+- **Trade on platform** - Earn bonus STAR for activity
 
 ---
 
 ## Use Cases & Examples
 
-### Example 1: Converting XLM to USDC
-**Scenario**: You want to convert 100 XLM to USDC stablecoin.
+### Example 1: New User - Maximizing STAR Before TGE
 
-1. Connect wallet with 100+ XLM balance
-2. Select "XLM" as source, "USDC" as destination
-3. Enter "100" in the amount field
-4. Review quote (e.g., ~28.45 USDC at current price)
-5. Adjust slippage if needed (default 0.5%)
-6. Click "Swap" and confirm
-7. Receive USDC in your wallet within 5 seconds
+**Goal**: Accumulate as much STAR as possible before token generation.
 
-**Cost**: ~0.01 XLM network fee + minimal price impact
+**Strategy:**
+1. **Initial mint**: Deposit 50 XLM → Get 500 STAR
+2. **Referral campaign**: Share link, get 10 friends to mint 20 XLM each
+   - Friends generate: 10 × 200 = 2,000 STAR
+   - You earn: 5% × 2,000 = **100 bonus STAR**
+3. **Join 5 airdrops**: Participate in token launches
+   - Average 100 STAR per campaign = **500 bonus STAR**
+4. **Social tasks**: Complete Twitter/Discord tasks
+   - Earn **200 bonus STAR**
 
----
+**Total STAR**: 500 + 100 + 500 + 200 = **1,300 STAR**
 
-### Example 2: Earning Passive Income with Liquidity
-**Scenario**: You have $1,000 worth of assets and want to earn trading fees.
+**Projected TGE allocation** (assuming 10M total STAR):
+- Your share: 1,300 / 10,000,000 = 0.013%
+- SLF received: 0.013% × 60M = **7,800 SLF tokens**
 
-1. Go to "Liquidity" tab and browse active pools
-2. Choose a pool like XLM/USDC (30 basis points fee)
-3. Deposit equal value: 500 XLM + $142.25 USDC
-4. Receive LP shares representing your pool position
-5. Earn 0.3% of all trading volume in that pool
-6. Track earnings in "My Positions" section
-
-**Returns**: Varies by pool volume, typically 5-30% APY
+**Cost**: 50 XLM deposit (fully yours, withdraw anytime)
 
 ---
 
-### Example 3: Launching a Community Token
-**Scenario**: You're building a project and want to distribute tokens fairly.
+### Example 2: Token Creator - Viral Community Launch
 
-1. Go to "Projects" tab, click "Create New Project"
-2. Enter token details: name, symbol, 1,000,000 supply
-3. Set allocation: 20% team, 50% airdrop, 30% liquidity
-4. Configure airdrop tasks (follow Twitter, join Discord, etc.)
-5. Deploy token to Stellar blockchain
-6. Share campaign link with community
-7. Users complete tasks to earn tokens
-8. Claim begins after campaign ends
+**Scenario**: Launch a community token with built-in growth mechanics.
 
-**Result**: Engaged community of token holders before DEX launch
+**Steps:**
+1. **Create token**: Name, symbol, 10M supply
+2. **Set allocation**:
+   - 50% (5M) → Airdrop participants
+   - 30% (3M) → DEX liquidity pool
+   - 20% (2M) → Team (vested)
+3. **Configure campaign**:
+   - Duration: 7 days
+   - Entry: Join + 1 STAR earned
+   - Referral bonus: +5 entries per referral
+4. **Launch campaign**: Share referral link
+5. **Viral growth**:
+   - Each participant gets unique referral link
+   - Incentivized to share (more entries = more tokens)
+   - Leaderboard shows top referrers
+6. **Auto-launch**: Campaign ends → DEX launches automatically
+7. **Distribution**: Participants claim tokens based on entries
 
----
+**Result**:
+- 1,000+ engaged community members
+- High-quality token holders (earned, not bought)
+- Immediate DEX liquidity
+- Active social media presence
 
-## FAQ
-
-**Q: Do I need to create an account?**
-A: No! Just connect your existing Stellar wallet. No signup, no KYC, no email required.
-
-**Q: What are the fees?**
-A: You only pay Stellar network fees (~0.01 XLM per transaction). StellForge does not charge additional fees.
-
-**Q: Is my money safe?**
-A: Your funds never leave your wallet until you approve a transaction. StellForge cannot access your private keys or move your funds.
-
-**Q: Can I use this on mobile?**
-A: Yes! StellForge is fully responsive and works on mobile browsers. Use a mobile Stellar wallet like xBull or Lobstr.
-
-**Q: What happens if a transaction fails?**
-A: Failed transactions are automatically reverted on Stellar. You'll see an error message and your funds remain in your wallet.
-
-**Q: How do I add a token to my wallet?**
-A: For new tokens, you need to add a "trustline" first. StellForge handles this automatically when you try to swap or add liquidity.
-
-**Q: Where can I see my transaction history?**
-A: Click any transaction hash to view it on Stellar Expert, or check your wallet's transaction history.
-
-**Q: Is StellForge audited?**
-A: StellForge is open source. The code uses Stellar's official SDK and Horizon API, which are battle-tested by the ecosystem.
+**Participant perspective**:
+- Joined airdrop → Got 1 entry (base)
+- Referred 20 friends → Got 100 bonus entries
+- Total entries: 101
+- Token share: 101 / 50,000 total = 0.202%
+- Tokens received: 0.202% × 5M = **10,100 tokens**
 
 ---
 
-## Technical Stack
+### Example 3: DeFi Trader - Swap + Earn Strategy
 
-For developers interested in the technical implementation:
+**Scenario**: Trade assets while earning STAR for platform activity.
 
-**Frontend:**
-- React 18 + TypeScript
-- Vite (build tool)
-- TailwindCSS (styling)
-- Stellar SDK (@stellar/stellar-sdk)
-- React Query (data fetching)
-- Framer Motion (animations)
+**Strategy:**
+1. **Deposit 100 XLM** → Earn 1,000 STAR immediately
+2. **Swap 50 XLM to USDC** → Earn 10 bonus STAR for trade
+3. **Add liquidity** (25 XLM + USDC) → Earn 50 bonus STAR
+4. **Refer trader friends** → Earn 5% of their STAR
+5. **Continue trading** → Accumulate STAR over time
 
-**Backend:**
-- Node.js + Express + TypeScript
-- Stellar Horizon API integration
-- TOML file parsing for asset metadata
-- In-memory caching for performance
-
-**Blockchain:**
-- Stellar mainnet (https://horizon.stellar.org)
-- Native DEX operations (path payments, liquidity pools)
-- No custom smart contracts required
+**Benefits:**
+- Execute trades at best prices
+- Earn passive income from liquidity fees
+- Build STAR points for TGE allocation
+- No additional cost (just normal DeFi activity)
 
 ---
 
 ## Roadmap
 
-### ✅ Current (Live Now)
-- Multi-hop token swaps with pathfinding
-- Liquidity pool deposits and withdrawals
-- Token creation and airdrop campaigns
-- Real asset logos and metadata
-- Full mainnet integration
+### ✅ Live Now
+- ✅ STAR points minting system (1 XLM = 10 STAR)
+- ✅ Referral network with 5% bonus rewards
+- ✅ Token launch wizard with viral mechanics
+- ✅ Airdrop participation and tracking
+- ✅ Lightning swap with 50+ assets
+- ✅ Liquidity pool management
+- ✅ Real-time points dashboard
 
-### 🔄 In Progress
-- Staking functionality for passive yields
-- Enhanced airdrop task verification
-- Cross-chain bridge integrations
-- Advanced analytics and charts
+### 🔄 Coming Soon (Pre-TGE)
+- 🔄 Enhanced social quests system
+- 🔄 STAR multiplier tiers
+- 🔄 Achievement badges and NFTs
+- 🔄 Advanced analytics dashboard
+- 🔄 Mobile app (iOS/Android)
 
-### 🔮 Future Plans
-- Limit orders and advanced trading
-- Portfolio tracking and analytics
-- Mobile app (iOS/Android)
-- Soroban smart contract integration
-- Governance and DAO features
+### 🔮 Post-TGE
+- 🔮 SLF token distribution to STAR holders
+- 🔮 SLF staking and governance
+- 🔮 Premium features for SLF holders
+- 🔮 Cross-chain bridges
+- 🔮 Soroban smart contract integration
 
 ---
 
-## Support & Community
+## STAR Points FAQ
 
-**Need Help?**
-- Check the FAQ section above
-- Review Stellar documentation: [developers.stellar.org](https://developers.stellar.org)
-- Join Stellar Discord: [stellar.org/community](https://stellar.org/community)
+**Q: Are STAR points transferable?**
+A: No. STAR is a non-transferable loyalty score tied to your wallet. This prevents gaming the system.
+
+**Q: Can I withdraw my XLM after minting STAR?**
+A: Yes! Your deposited XLM can be withdrawn anytime. STAR points remain in your account.
+
+**Q: When is the TGE?**
+A: TGE date will be announced when total STAR reaches critical mass. Early adopters benefit most.
+
+**Q: How is my SLF allocation calculated?**
+A: Your SLF = (Your STAR / Total STAR) × 60,000,000. The formula is transparent and verifiable.
+
+**Q: What happens to STAR after TGE?**
+A: STAR continues as platform loyalty points with ongoing utility (discounts, boosts, etc.).
+
+**Q: Can I earn STAR without depositing XLM?**
+A: Yes! Participate in airdrops, complete tasks, and earn referral bonuses. Minting is just the fastest way.
+
+**Q: Is there a maximum STAR limit?**
+A: No maximum. The more you earn, the better your TGE allocation.
+
+**Q: Are there referral limits?**
+A: No limits on referrals. Build as large a network as you can.
+
+---
+
+## Platform FAQ
+
+**Q: Do I need to create an account?**
+A: No! Just connect your Stellar wallet. No signup, no KYC, no email.
+
+**Q: What are the platform fees?**
+A: Only Stellar network fees (~0.01 XLM per transaction). No platform fees.
+
+**Q: Is my money safe?**
+A: Your funds never leave your wallet until you approve transactions. StellForge is non-custodial.
+
+**Q: Can I use StellForge on mobile?**
+A: Yes! Fully responsive interface works on mobile browsers with mobile wallets.
+
+**Q: What if a transaction fails?**
+A: Failed transactions revert automatically on Stellar. No funds are lost.
+
+**Q: How do I track my STAR history?**
+A: Visit the Points Dashboard to see all STAR earnings, referrals, and projections.
+
+**Q: Is StellForge audited?**
+A: Open source and built with Stellar's official SDK. Code is publicly auditable.
+
+---
+
+## Technical Stack
+
+**Frontend:**
+- React 18 + TypeScript
+- Vite build system
+- TailwindCSS styling
+- Stellar SDK
+- React Query
+- Framer Motion
+
+**Backend:**
+- Node.js + Express + TypeScript
+- Stellar Horizon API
+- Real-time STAR calculations
+- Referral tracking system
+
+**Blockchain:**
+- Stellar mainnet
+- Native DEX operations
+- Trustless execution
+- On-chain verification
+
+---
+
+## Why Stellar?
+
+StellForge chose Stellar because it's the perfect foundation for GameFi + DeFi:
+
+- **3-5 second settlement** - Fast enough for gaming mechanics
+- **Fraction-of-penny fees** - Micro-transactions are viable
+- **Built-in DEX** - No smart contracts needed for trading
+- **Easy asset issuance** - Launch tokens in seconds
+- **Proven at scale** - Billions in daily transaction volume
+- **Energy efficient** - Sustainable consensus mechanism
+
+---
+
+## Community & Support
+
+**Join the Movement:**
+- Earn STAR points before TGE
+- Build your referral network
+- Participate in token launches
+- Shape the future of GameFi on Stellar
+
+**Get Help:**
+- Check FAQ sections above
+- Review [Stellar documentation](https://developers.stellar.org)
+- Join [Stellar Discord](https://stellar.org/community)
 
 **Report Issues:**
-- Open an issue on GitHub
-- Provide transaction hash and error details
-- Include wallet type and browser info
-
-**Stay Updated:**
-- Follow development progress
-- Join community discussions
-- Contribute to open source code
+- Open GitHub issue with details
+- Include transaction hash and error
+- Specify wallet and browser
 
 ---
 
 ## License
 
-MIT License - Free and open source for the Stellar ecosystem.
+MIT License - Open source for the Stellar ecosystem.
 
 ---
 
-**Ready to experience DeFi on Stellar? Connect your wallet and start trading!** 🚀
+**🌟 Start earning STAR points today. Be early for TGE. Build the future of GameFi + DeFi on Stellar. 🚀**
 
 Built with ❤️ for the Stellar community.
