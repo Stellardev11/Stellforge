@@ -1,16 +1,60 @@
-import { Gift, Target, Users, Rocket, ArrowRight, CheckCircle2, TrendingUp, Coins, Trophy } from 'lucide-react'
+import { Gift, Target, Users, Rocket, ArrowRight, CheckCircle2, TrendingUp, Coins, Trophy, Flame, Wallet } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { api } from '../api/client'
+import { useWallet } from '../context/WalletContext'
 
 type DashboardProps = {
   setActiveTab: (tab: 'dashboard' | 'launchpad' | 'create-token' | 'trading' | 'launches') => void
 }
 
+interface Project {
+  id: string
+  tokenName: string
+  tokenSymbol: string
+  description: string
+  logoUrl?: string
+  totalStarBurned: string
+  totalParticipations: number
+  airdropPercent: string
+  eventEndDate: string
+  status: string
+}
+
 export default function NewDashboard({ setActiveTab }: DashboardProps) {
+  const { connected, connectWallet } = useWallet()
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchProjects()
+  }, [])
+
+  const fetchProjects = async () => {
+    try {
+      setLoading(true)
+      const response = await api.getActiveProjects()
+      if (response.success && response.data) {
+        setProjects(response.data as Project[])
+      }
+    } catch (error) {
+      console.error('Failed to fetch projects:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const totalStarBurned = projects.reduce((sum, p) => sum + parseFloat(p.totalStarBurned || '0'), 0)
+  const totalParticipants = projects.reduce((sum, p) => sum + (p.totalParticipations || 0), 0)
+  const topProjects = [...projects]
+    .sort((a, b) => parseFloat(b.totalStarBurned || '0') - parseFloat(a.totalStarBurned || '0'))
+    .slice(0, 6)
+
   const stats = [
-    { label: 'Live Tokens', value: '156', icon: Rocket },
-    { label: 'Total Volume', value: '$2.8M', icon: Trophy },
-    { label: 'Active Airdrops', value: '42', icon: Target },
-    { label: 'Total Holders', value: '18.5K', icon: Users },
+    { label: 'Live Tokens', value: loading ? '...' : projects.length.toString(), icon: Rocket },
+    { label: 'Total STAR Burned', value: loading ? '...' : Math.round(totalStarBurned).toLocaleString(), icon: Flame },
+    { label: 'Active Airdrops', value: loading ? '...' : projects.length.toString(), icon: Target },
+    { label: 'Total Participants', value: loading ? '...' : totalParticipants.toLocaleString(), icon: Users },
   ]
 
   const lifecycle = [
@@ -162,6 +206,103 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
               )
             })}
           </div>
+
+          {topProjects.length > 0 && (
+            <div className="mt-16">
+              <div className="text-center mb-8">
+                <h2 className="text-display-sm md:text-display-md text-white mb-4">
+                  🔥 <span className="text-gradient">Trending Projects</span>
+                </h2>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                  Top projects by STAR burned - Join the action!
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {topProjects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="glass-card rounded-xl p-6 hover:shadow-glow transition-all cursor-pointer"
+                    onClick={() => setActiveTab('launches')}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      {project.logoUrl ? (
+                        <img 
+                          src={project.logoUrl} 
+                          alt={project.tokenName}
+                          className="w-12 h-12 rounded-full"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-stellar-bright-blue to-blue-600 flex items-center justify-center text-white font-bold">
+                          {project.tokenSymbol?.charAt(0) || 'T'}
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-white mb-1">{project.tokenName}</h3>
+                        <p className="text-sm text-gray-400">{project.tokenSymbol}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-gray-300 mb-4 line-clamp-2">{project.description}</p>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-3 bg-white/5 rounded-lg">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <Flame className="w-4 h-4 text-orange-500" />
+                          <p className="text-xs text-gray-400">STAR Burned</p>
+                        </div>
+                        <p className="text-lg font-bold text-white">
+                          {Math.round(parseFloat(project.totalStarBurned || '0')).toLocaleString()}
+                        </p>
+                      </div>
+                      <div className="text-center p-3 bg-white/5 rounded-lg">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <Users className="w-4 h-4 text-blue-500" />
+                          <p className="text-xs text-gray-400">Participants</p>
+                        </div>
+                        <p className="text-lg font-bold text-white">
+                          {project.totalParticipations || 0}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-400">Airdrop</span>
+                        <span className="text-white font-semibold">{project.airdropPercent}%</span>
+                      </div>
+                    </div>
+
+                    {!connected && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          connectWallet()
+                        }}
+                        className="mt-4 w-full px-4 py-2 bg-gradient-to-r from-stellar-bright-blue to-blue-600 hover:from-stellar-bright-blue/90 hover:to-blue-600/90 text-white rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2"
+                      >
+                        <Wallet className="w-4 h-4" />
+                        Connect to Participate
+                      </button>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setActiveTab('launches')}
+                  className="px-6 py-3 glass-card hover:bg-white/10 text-white rounded-lg font-medium transition-all border border-white/10 inline-flex items-center gap-2"
+                >
+                  View All Projects
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="mt-16 glass-card rounded-2xl p-8 md:p-12 text-center">
             <div className="max-w-3xl mx-auto">

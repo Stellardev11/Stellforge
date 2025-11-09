@@ -121,4 +121,31 @@ export const api = {
     }
     return response.json()
   },
+
+  getActiveProjects: async () => {
+    const url = `${API_BASE}/projects/active`
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Failed to fetch active projects')
+    }
+    return response.json()
+  },
+
+  getProject: async (projectId: string) => {
+    const url = `${API_BASE}/projects/${projectId}`
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Failed to fetch project')
+    }
+    return response.json()
+  },
+
+  getProjectStats: async (projectId: string) => {
+    const url = `${API_BASE}/star-burn/project/${projectId}/stats`
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Failed to fetch project stats')
+    }
+    return response.json()
+  },
 }
