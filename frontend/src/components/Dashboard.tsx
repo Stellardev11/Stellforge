@@ -91,14 +91,14 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
       title: 'Setup Airdrop',
       description: 'Configure distribution percentages and social tasks for community engagement.',
       icon: Gift,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-[#FCD535] to-[#F7931A]',
     },
     {
       step: '3',
       title: 'Users Participate',
       description: 'Community completes tasks, earns tokens, and becomes eligible for claims.',
       icon: Users,
-      color: 'from-green-500 to-green-600',
+      color: 'from-[#F7931A] to-[#FCD535]',
     },
     {
       step: '4',
@@ -153,9 +153,9 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               {[
-                { icon: Star, label: 'View STAR Balance', color: 'from-purple-500 to-pink-500' },
-                { icon: Share2, label: 'Get Referral Link', color: 'from-[#F7931A] to-cyan-500' },
-                { icon: Trophy, label: 'Track Progress', color: 'from-yellow-500 to-orange-500' },
+                { icon: Star, label: 'View STAR Balance', color: 'from-[#FCD535] to-[#F7931A]' },
+                { icon: Share2, label: 'Get Referral Link', color: 'from-[#F7931A] to-[#FCD535]' },
+                { icon: Trophy, label: 'Track Progress', color: 'from-[#FCD535] to-[#F7931A]' },
               ].map((feature, i) => (
                 <motion.div
                   key={i}
@@ -229,10 +229,10 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="glass-card rounded-2xl p-6 border-2 border-purple-500/20 hover:border-purple-500/40 transition-all"
+                className="glass-card rounded-2xl p-6 border-2 border-[#FCD535]/20 hover:border-[#FCD535]/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-[#F7931A] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-xl flex items-center justify-center">
                     <img src={starLogo} alt="STAR" className="w-7 h-7" />
                   </div>
                   <div>
@@ -262,10 +262,10 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="glass-card rounded-2xl p-6 border-2 border-[#FCD535]/20 hover:border-[#FCD535]/40 transition-all"
+                className="glass-card rounded-2xl p-6 border-2 border-[#F7931A]/20 hover:border-[#F7931A]/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F7931A] to-cyan-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#F7931A] to-[#FCD535] rounded-xl flex items-center justify-center">
                     <Share2 className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -278,7 +278,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 <button
                   onClick={copyReferralLink}
                   disabled={!referralCode}
-                  className="w-full px-4 py-2 bg-gradient-to-r from-[#F7931A] to-cyan-500 text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-[#F7931A] to-[#FCD535] text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {copied ? (
                     <>
@@ -298,10 +298,10 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="glass-card rounded-2xl p-6 border-2 border-green-500/20 hover:border-green-500/40 transition-all"
+                className="glass-card rounded-2xl p-6 border-2 border-[#FCD535]/20 hover:border-[#FCD535]/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-xl flex items-center justify-center">
                     <Trophy className="w-6 h-6 text-white" />
                   </div>
                   <div>

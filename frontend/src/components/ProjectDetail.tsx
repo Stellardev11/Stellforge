@@ -13,7 +13,7 @@ interface ProjectDetailProps {
 type TabType = 'overview' | 'metrics' | 'participants' | 'activity'
 
 export default function ProjectDetail({ project, onBack }: ProjectDetailProps) {
-  const { connected, connectWallet } = useWallet()
+  const { connected } = useWallet()
   const [activeTab, setActiveTab] = useState<TabType>('overview')
   const [showTrading, setShowTrading] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -151,12 +151,15 @@ export default function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         </div>
       </div>
 
-      <button
-        onClick={connected ? () => {} : connectWallet}
-        className="w-full py-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all hover:scale-[1.02]"
-      >
-        {connected ? 'Join Airdrop' : 'Connect Wallet to Join'}
-      </button>
+      {connected ? (
+        <button className="w-full py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg shadow-2xl hover:shadow-[#FCD535]/50 transition-all hover:scale-[1.02]">
+          Join Airdrop
+        </button>
+      ) : (
+        <div className="text-center py-4 text-gray-400">
+          Connect wallet via top navigation to join airdrop
+        </div>
+      )}
     </div>
   )
 
@@ -187,12 +190,15 @@ export default function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         </div>
       </div>
 
-      <button
-        onClick={connected ? () => {} : connectWallet}
-        className="w-full py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-orange-500/50 transition-all hover:scale-[1.02]"
-      >
-        {connected ? 'Participate in Burn' : 'Connect Wallet to Participate'}
-      </button>
+      {connected ? (
+        <button className="w-full py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg shadow-2xl hover:shadow-[#F7931A]/50 transition-all hover:scale-[1.02]">
+          Participate in Burn
+        </button>
+      ) : (
+        <div className="text-center py-4 text-gray-400">
+          Connect wallet via top navigation to participate
+        </div>
+      )}
     </div>
   )
 
@@ -227,12 +233,15 @@ export default function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         </div>
       </div>
 
-      <button
-        onClick={connected ? () => {} : connectWallet}
-        className="w-full py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-purple-500/50 transition-all hover:scale-[1.02]"
-      >
-        {connected ? 'Add Liquidity' : 'Connect Wallet to Add Liquidity'}
-      </button>
+      {connected ? (
+        <button className="w-full py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg shadow-2xl hover:shadow-[#FCD535]/50 transition-all hover:scale-[1.02]">
+          Add Liquidity
+        </button>
+      ) : (
+        <div className="text-center py-4 text-gray-400">
+          Connect wallet via top navigation to add liquidity
+        </div>
+      )}
     </div>
   )
 

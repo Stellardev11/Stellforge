@@ -11,7 +11,7 @@ interface LeaderboardEntry {
 }
 
 export default function Leaderboard() {
-  const { connected, connectWallet, address } = useWallet();
+  const { connected, address } = useWallet();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -53,19 +53,13 @@ export default function Leaderboard() {
     return (
       <div className="min-h-screen bg-[#0B0E11] flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-[#1A1D23] border border-[#2B3139] rounded-2xl p-8 text-center">
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#FCD535] to-[#E5C430] rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-full flex items-center justify-center">
             <Trophy className="w-10 h-10 text-black" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-4">Connect Your Wallet</h2>
-          <p className="text-gray-400 mb-6">
-            Connect your Stellar wallet to view the STAR leaderboard and see where you rank among other holders.
+          <h2 className="text-2xl font-bold text-white mb-4">Wallet Connection Required</h2>
+          <p className="text-gray-400">
+            Please connect your Stellar wallet using the wallet button in the top navigation to view the STAR leaderboard and see where you rank among other holders.
           </p>
-          <button
-            onClick={connectWallet}
-            className="w-full bg-[#FCD535] text-black py-3 rounded-lg font-bold hover:bg-[#E5C430] transition-all"
-          >
-            Connect Wallet
-          </button>
         </div>
       </div>
     );

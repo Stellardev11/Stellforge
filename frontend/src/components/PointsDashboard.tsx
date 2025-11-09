@@ -5,7 +5,7 @@ import { Copy, Check, Gift, Coins, Users, Trophy, ExternalLink, TrendingUp } fro
 import starLogo from '../assets/star-logo.png';
 
 export default function PointsDashboard() {
-  const { connected, connectWallet, address } = useWallet();
+  const { connected, address } = useWallet();
   const walletAddress = address || '';
   const [balance, setBalance] = useState<PointBalance | null>(null);
   const [referralInfo, setReferralInfo] = useState<ReferralInfo | null>(null);
@@ -93,16 +93,10 @@ export default function PointsDashboard() {
           <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-full flex items-center justify-center">
             <Coins className="w-12 h-12 text-black" />
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4">Connect Your Wallet</h2>
-          <p className="text-gray-400 mb-8">
-            Connect your Stellar wallet to view your STAR points dashboard, referral stats, and more
+          <h2 className="text-3xl font-bold text-white mb-4">Wallet Connection Required</h2>
+          <p className="text-gray-400">
+            Please connect your Stellar wallet using the wallet button in the top navigation to view your STAR points dashboard, referral stats, and more.
           </p>
-          <button
-            onClick={connectWallet}
-            className="px-8 py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-[#FCD535]/50 transition-all"
-          >
-            Connect Wallet
-          </button>
         </div>
       </div>
     );

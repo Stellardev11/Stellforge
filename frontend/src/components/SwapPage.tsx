@@ -20,7 +20,7 @@ function getAssetIssuer(asset: StellarAsset | null): string {
 }
 
 export default function SwapPage() {
-  const { connected, connectWallet, balances, address, signAndSubmitTransaction, getAccountBalances } = useWallet()
+  const { connected, balances, address, signAndSubmitTransaction, getAccountBalances } = useWallet()
   const { data: assetsData, isLoading: assetsLoading } = useAssets(50)
   
   const [fromAsset, setFromAsset] = useState<StellarAsset | null>(null)
@@ -118,7 +118,7 @@ export default function SwapPage() {
 
   const handleSwap = async () => {
     if (!connected) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation to perform swaps.')
       return
     }
 

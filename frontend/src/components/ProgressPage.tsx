@@ -21,7 +21,7 @@ interface EventProgress {
 }
 
 export default function ProgressPage() {
-  const { connected, connectWallet, address } = useWallet()
+  const { connected, address } = useWallet()
   const [copiedCode, setCopiedCode] = useState('')
   const [activeProjects, setActiveProjects] = useState<EventProgress[]>([])
 
@@ -81,7 +81,7 @@ export default function ProgressPage() {
 
   const handleClaim = async (projectId: string) => {
     if (!connected) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation.')
       return
     }
     
@@ -91,19 +91,13 @@ export default function ProgressPage() {
 
   if (!connected) {
     return (
-      <div className="min-h-screen flex items-center justify-center py-12">
-        <div className="text-center">
+      <div className="min-h-screen flex items-center justify-center py-12 px-4">
+        <div className="text-center max-w-md">
           <div className="mb-8">
-            <Users className="w-24 h-24 text-stellar-cyan mx-auto mb-4" />
+            <Users className="w-24 h-24 text-[#FCD535] mx-auto mb-4" />
             <h1 className="text-4xl font-bold text-white mb-4">Your Progress & Rewards</h1>
-            <p className="text-xl text-eth-grey-medium">Connect your wallet to view your airdrop participation</p>
+            <p className="text-xl text-gray-400">Please connect your Stellar wallet using the button in the top navigation to view your airdrop participation and rewards.</p>
           </div>
-          <button
-            onClick={connectWallet}
-            className="px-8 py-4 bg-gradient-to-r from-stellar-cyan to-bitcoin-orange hover:from-stellar-cyan/90 hover:to-bitcoin-orange/90 text-white rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-2xl shadow-stellar-cyan/40"
-          >
-            Connect Wallet
-          </button>
         </div>
       </div>
     )

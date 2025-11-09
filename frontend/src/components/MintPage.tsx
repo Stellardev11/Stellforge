@@ -5,7 +5,7 @@ import { ArrowRight, Star, Lock, Users, Zap, Database } from 'lucide-react';
 import starToken3D from '../assets/star-token-3d.png';
 
 export default function MintPage() {
-  const { connected, connectWallet, address } = useWallet();
+  const { connected, address } = useWallet();
   const walletAddress = address || '';
   const [xlmAmount, setXlmAmount] = useState('');
   const [showMintForm, setShowMintForm] = useState(false);
@@ -13,7 +13,7 @@ export default function MintPage() {
 
   const handleMintClick = () => {
     if (!connected) {
-      connectWallet();
+      alert('Please connect your wallet using the button in the top navigation to mint STAR points.');
       return;
     }
     setShowMintForm(true);
@@ -21,7 +21,7 @@ export default function MintPage() {
 
   const handleMint = async () => {
     if (!connected || !walletAddress) {
-      connectWallet();
+      alert('Please connect your wallet using the button in the top navigation.');
       return;
     }
 
@@ -177,18 +177,12 @@ export default function MintPage() {
           </div>
         </div>
 
-        {/* Connect Wallet CTA (if not connected) */}
+        {/* Wallet Connection Info */}
         {!connected && (
           <div className="max-w-md mx-auto text-center">
             <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-8">
               <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-              <p className="text-gray-400 mb-6">Connect your Stellar wallet to mint STAR points and secure your SLF allocation</p>
-              <button
-                onClick={connectWallet}
-                className="w-full bg-[#FCD535] text-black py-4 rounded-lg font-bold hover:bg-[#E5C430] transition-all"
-              >
-                Connect Wallet
-              </button>
+              <p className="text-gray-400">Connect your Stellar wallet using the wallet button in the top navigation to mint STAR points and secure your SLF allocation</p>
             </div>
           </div>
         )}

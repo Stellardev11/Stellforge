@@ -8,7 +8,7 @@ interface LaunchCurveTradeProps {
 }
 
 export default function LaunchCurveTrade({ tokenId = '1' }: LaunchCurveTradeProps) {
-  const { connected, connectWallet } = useWallet()
+  const { connected } = useWallet()
   const [activeTab, setActiveTab] = useState<'buy' | 'sell'>('buy')
   const [amount, setAmount] = useState('')
   const [estimatedCost, setEstimatedCost] = useState('0')
@@ -106,7 +106,7 @@ export default function LaunchCurveTrade({ tokenId = '1' }: LaunchCurveTradeProp
 
   const handleTrade = () => {
     if (!connected) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation.')
       return
     }
     alert(`${activeTab === 'buy' ? 'Buying' : 'Selling'} ${amount} ${token.symbol} - Coming soon!`)

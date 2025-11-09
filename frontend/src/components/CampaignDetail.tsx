@@ -12,7 +12,7 @@ interface CampaignDetailProps {
 }
 
 export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDetailProps) {
-  const { connected, connectWallet } = useWallet()
+  const { connected } = useWallet()
   const { data: project, isLoading, error } = useProject(campaignId)
   
   const [completedTasks, setCompletedTasks] = useState<Set<number>>(new Set())
@@ -137,7 +137,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
 
   const handleJoinClick = () => {
     if (!connected) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation to join the campaign.')
       return
     }
     setShowJoinModal(true)
@@ -157,7 +157,7 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
 
   const handleClaim = () => {
     if (!connected) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation to claim tokens.')
       return
     }
     if (!canClaimTokens) return
@@ -531,12 +531,9 @@ export default function CampaignDetail({ campaignId = '1', onBack }: CampaignDet
               </div>
               
               {!connected ? (
-                <button 
-                  onClick={connectWallet} 
-                  className="w-full px-4 py-3 bg-starglow-gradient text-white rounded-lg font-semibold shadow-lg hover:shadow-cyan-500/30 transition-all hover:scale-[1.02]"
-                >
-                  Connect Wallet to Join
-                </button>
+                <div className="w-full px-4 py-3 bg-white/5 text-gray-400 rounded-lg font-semibold border border-white/10 text-center">
+                  Connect wallet via top navigation to join
+                </div>
               ) : hasClaimed ? (
                 <div className="w-full px-4 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 rounded-lg font-semibold border border-green-500/30 text-center">
                   ✓ Tokens Claimed!

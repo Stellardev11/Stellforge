@@ -12,7 +12,7 @@ interface BurnStarModalProps {
 }
 
 export default function BurnStarModal({ isOpen, onClose, projectId, projectName, projectSymbol }: BurnStarModalProps) {
-  const { connected, address, connectWallet } = useWallet()
+  const { connected, address } = useWallet()
   const [starBalance, setStarBalance] = useState<number>(0)
   const [burnAmount, setBurnAmount] = useState<string>('')
   const [loading, setLoading] = useState(false)
@@ -97,13 +97,6 @@ export default function BurnStarModal({ isOpen, onClose, projectId, projectName,
     }
   }
 
-  const handleConnectWallet = async () => {
-    try {
-      await connectWallet()
-    } catch (err) {
-      setError('Failed to connect wallet')
-    }
-  }
 
   const handleMaxClick = () => {
     setBurnAmount(starBalance.toString())
@@ -138,13 +131,8 @@ export default function BurnStarModal({ isOpen, onClose, projectId, projectName,
               <div className="inline-flex p-4 bg-[#0B0E11] rounded-full mb-4">
                 <AlertCircle className="text-[#FCD535]" size={40} />
               </div>
-              <p className="text-white mb-4">Connect your wallet to burn STAR</p>
-              <button
-                onClick={handleConnectWallet}
-                className="px-6 py-3 bg-[#FCD535] hover:bg-[#e6c430] text-[#0B0E11] font-semibold rounded-lg transition-all"
-              >
-                Connect Wallet
-              </button>
+              <p className="text-white mb-2">Wallet Connection Required</p>
+              <p className="text-sm text-gray-400">Please connect your wallet using the button in the top navigation to burn STAR</p>
             </div>
           ) : (
             <div className="space-y-4">

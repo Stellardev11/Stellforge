@@ -11,7 +11,7 @@ interface TokenDetailProps {
 }
 
 export default function TokenDetail({ project, onBack }: TokenDetailProps) {
-  const { connected, connectWallet } = useWallet()
+  const { connected } = useWallet()
   const [timeframe, setTimeframe] = useState<'1m' | '5D' | '1M'>('1m')
   const [showTrading, setShowTrading] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -289,18 +289,15 @@ export default function TokenDetail({ project, onBack }: TokenDetailProps) {
               
               <button
                 onClick={() => setShowTrading(true)}
-                className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-black font-bold rounded-lg transition-all mb-3"
+                className="w-full py-3 bg-gradient-to-r from-[#FCD535] to-[#F7931A] hover:from-[#E5C430] hover:to-[#E8831A] text-black font-bold rounded-lg transition-all mb-3"
               >
                 Open Trading Terminal
               </button>
 
               {!connected && (
-                <button
-                  onClick={connectWallet}
-                  className="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20"
-                >
-                  Connect Wallet to Trade
-                </button>
+                <div className="text-center py-3 text-sm text-gray-400">
+                  Connect wallet via top navigation to trade
+                </div>
               )}
 
               <div className="mt-6 space-y-3 text-xs">

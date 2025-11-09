@@ -6,7 +6,7 @@ import { createStellarToken, completeTokenIssuance } from '../utils/stellarToken
 import { contractService } from '../services/contractService'
 
 export default function TokenLaunchWizard() {
-  const { connected, connectWallet, address, signAndSubmitTransaction } = useWallet()
+  const { connected, address, signAndSubmitTransaction } = useWallet()
   const [step, setStep] = useState(1)
   const [logoPreview, setLogoPreview] = useState<string | null>(null)
   const [isCreating, setIsCreating] = useState(false)
@@ -76,7 +76,7 @@ export default function TokenLaunchWizard() {
 
   const handleSubmit = async () => {
     if (!connected || !address) {
-      connectWallet()
+      alert('Please connect your wallet using the button in the top navigation to launch a token.')
       return
     }
 
