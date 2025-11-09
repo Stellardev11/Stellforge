@@ -5,8 +5,8 @@ import { Copy, Check, Gift, Coins, Users, Trophy, ExternalLink, TrendingUp } fro
 import starLogo from '../assets/star-logo.png';
 
 export default function PointsDashboard() {
-  const wallet = useWallet();
-  const walletAddress = wallet?.address || '';
+  const { connected, connectWallet, address } = useWallet();
+  const walletAddress = address || '';
   const [balance, setBalance] = useState<PointBalance | null>(null);
   const [referralInfo, setReferralInfo] = useState<ReferralInfo | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -16,10 +16,12 @@ export default function PointsDashboard() {
   const [claiming, setClaiming] = useState(false);
 
   useEffect(() => {
-    if (walletAddress) {
+    if (connected && walletAddress) {
       loadData();
+    } else {
+      setLoading(false);
     }
-  }, [walletAddress]);
+  }, [connected, walletAddress]);
 
   const loadData = async () => {
     if (!walletAddress) return;
@@ -84,13 +86,23 @@ export default function PointsDashboard() {
     }
   };
 
-  if (!walletAddress) {
+  if (!connected || !walletAddress) {
     return (
-      <div className="min-h-screen bg-[#0B0E11] flex items-center justify-center">
-        <div className="text-center">
-          <Coins className="w-16 h-16 text-[#FCD535] mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-2">Connect Your Wallet</h2>
-          <p className="text-gray-400">Please connect your wallet to view your STAR dashboard</p>
+      <div className="min-h-screen bg-[#0B0E11] flex items-center justify-center px-4">
+        <div className="max-w-md w-full text-center bg-gradient-to-br from-[#1E2329] to-[#0B0E11] border border-[#2B3139] rounded-2xl p-12">
+          <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-full flex items-center justify-center">
+            <Coins className="w-12 h-12 text-black" />
+          </div>
+          <h2 className="text-3xl font-bold text-white mb-4">Connect Your Wallet</h2>
+          <p className="text-gray-400 mb-8">
+            Connect your Stellar wallet to view your STAR points dashboard, referral stats, and more
+          </p>
+          <button
+            onClick={connectWallet}
+            className="px-8 py-4 bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-[#FCD535]/50 transition-all"
+          >
+            Connect Wallet
+          </button>
         </div>
       </div>
     );
