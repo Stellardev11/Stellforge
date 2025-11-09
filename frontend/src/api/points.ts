@@ -156,4 +156,9 @@ export const pointsApi = {
     const response = await axios.get(`${API_BASE_URL}/star-burn/user/${walletAddress}/burns`);
     return response.data.data;
   },
+
+  async getLeaderboard(limit: number = 50) {
+    const response = await axios.get(`${API_BASE_URL}/points/leaderboard?limit=${limit}`);
+    return response.data;
+  },
 };

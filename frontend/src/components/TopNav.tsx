@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Menu, X, ArrowDownUp, Droplets, Wallet, Coins, BookOpen } from 'lucide-react'
+import { Menu, X, ArrowDownUp, Droplets, Wallet, BookOpen, LayoutDashboard, Database, Trophy } from 'lucide-react'
 import { useWallet } from '../context/WalletContext'
 
-type TabType = 'swap' | 'liquidity' | 'projects' | 'points' | 'docs'
+type TabType = 'swap' | 'liquidity' | 'projects' | 'dashboard' | 'mint' | 'leaderboard' | 'docs'
 
 interface TopNavProps {
   activeTab: TabType
@@ -27,7 +27,9 @@ export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
     { id: 'swap', icon: ArrowDownUp, label: 'Swap' },
     { id: 'liquidity', icon: Droplets, label: 'Liquidity' },
     { id: 'projects', icon: ProjectIcon, label: 'Projects' },
-    { id: 'points', icon: Coins, label: 'Points & Mint' },
+    { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { id: 'mint', icon: Database, label: 'Mint Points' },
+    { id: 'leaderboard', icon: Trophy, label: 'Leaderboard' },
     { id: 'docs', icon: BookOpen, label: 'Documentation' },
   ]
 

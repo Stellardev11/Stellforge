@@ -10,8 +10,9 @@ import AirdropProjects from './components/AirdropProjects'
 import TokenLaunchWizard from './components/TokenLaunchWizard'
 import CampaignDetail from './components/CampaignDetail'
 import ProgressPage from './components/ProgressPage'
-import PointsDashboard from './components/PointsDashboard'
+import Dashboard from './components/Dashboard'
 import MintPage from './components/MintPage'
+import Leaderboard from './components/Leaderboard'
 import DocumentationPage from './components/DocumentationPage'
 import TopNav from './components/TopNav'
 
@@ -24,12 +25,12 @@ const queryClient = new QueryClient({
   },
 })
 
-type TabType = 'swap' | 'liquidity' | 'projects' | 'points' | 'docs'
+type TabType = 'swap' | 'liquidity' | 'projects' | 'dashboard' | 'mint' | 'leaderboard' | 'docs'
 
 function App() {
   const [showLanding, setShowLanding] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('swap')
-  const [viewMode, setViewMode] = useState<'browse' | 'create' | 'project-detail' | 'progress' | 'points-dashboard' | 'mint'>('browse')
+  const [viewMode, setViewMode] = useState<'browse' | 'create' | 'project-detail' | 'progress'>('browse')
 
   const handleCreateToken = () => {
     setViewMode('create')
@@ -37,13 +38,7 @@ function App() {
 
   // Handle nav tab changes - always reset to browse mode
   const handleTabChange = (tab: TabType) => {
-    if (tab === 'points') {
-      setViewMode('points-dashboard')
-    } else if (tab === 'docs') {
-      setViewMode('browse')
-    } else {
-      setViewMode('browse')
-    }
+    setViewMode('browse')
     setActiveTab(tab)
   }
 
@@ -130,44 +125,6 @@ function App() {
     )
   }
 
-  // Render points dashboard or mint page
-  if (viewMode === 'points-dashboard' || viewMode === 'mint') {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <WalletProvider>
-          <TokenMarketProvider>
-            <div className="min-h-screen bg-[#0B0E11]">
-              <TopNav activeTab={activeTab} setActiveTab={handleTabChange} />
-              <div className="flex items-center gap-4 px-4 py-4 border-b border-[#2B3139]">
-                <button
-                  onClick={() => setViewMode('points-dashboard')}
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    viewMode === 'points-dashboard' 
-                      ? 'bg-[#FCD535] text-black font-semibold' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Dashboard
-                </button>
-                <button
-                  onClick={() => setViewMode('mint')}
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    viewMode === 'mint' 
-                      ? 'bg-[#FCD535] text-black font-semibold' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Mint Points
-                </button>
-              </div>
-              {viewMode === 'points-dashboard' ? <PointsDashboard /> : <MintPage />}
-            </div>
-          </TokenMarketProvider>
-        </WalletProvider>
-      </QueryClientProvider>
-    )
-  }
-
   // Main app layout
   return (
     <ErrorBoundary>
@@ -192,6 +149,12 @@ function App() {
                   onCreateProject={handleCreateToken}
                 />
               )}
+
+              {activeTab === 'dashboard' && <Dashboard setActiveTab={setActiveTab} />}
+
+              {activeTab === 'mint' && <MintPage />}
+
+              {activeTab === 'leaderboard' && <Leaderboard />}
 
               {activeTab === 'docs' && <DocumentationPage />}
             </div>

@@ -7,7 +7,7 @@ import { useWallet } from '../context/WalletContext'
 import starLogo from '../assets/star-logo.png'
 
 type DashboardProps = {
-  setActiveTab: (tab: 'dashboard' | 'launchpad' | 'create-token' | 'trading' | 'launches') => void
+  setActiveTab: (tab: 'swap' | 'liquidity' | 'projects' | 'dashboard' | 'mint' | 'leaderboard' | 'docs') => void
 }
 
 interface Project {
@@ -410,7 +410,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className="glass-card rounded-xl p-6 hover:shadow-glow transition-all cursor-pointer"
-                    onClick={() => setActiveTab('launches')}
+                    onClick={() => setActiveTab('projects')}
                   >
                     <div className="flex items-start gap-4 mb-4">
                       {project.logoUrl ? (
@@ -465,7 +465,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
 
               <div className="text-center mt-8">
                 <button
-                  onClick={() => setActiveTab('launches')}
+                  onClick={() => setActiveTab('projects')}
                   className="px-6 py-3 glass-card hover:bg-white/10 text-white rounded-lg font-medium transition-all border border-white/10 inline-flex items-center gap-2"
                 >
                   View All Projects
@@ -487,7 +487,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 Create your token in minutes with our easy wizard. Set up airdrops, launch curve trading, and watch your community grow.
               </p>
               <button
-                onClick={() => setActiveTab('create-token')}
+                onClick={() => setActiveTab('projects')}
                 className="group px-10 py-5 bg-gradient-to-r from-stellar-bright-blue to-blue-600 hover:from-stellar-bright-blue/90 hover:to-blue-600/90 text-white rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-glow inline-flex items-center gap-2"
               >
                 <Rocket className="w-6 h-6" />

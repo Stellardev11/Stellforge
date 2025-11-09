@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useWallet } from '../context/WalletContext';
 import { pointsApi } from '../api/points';
-import { ArrowRight, Star, Lock, Users, Zap } from 'lucide-react';
+import { ArrowRight, Star, Lock, Users, Zap, Database } from 'lucide-react';
 import starToken3D from '../assets/star-token-3d.png';
 
 export default function MintPage() {
@@ -69,19 +69,15 @@ export default function MintPage() {
           <div className="mb-8 flex justify-center">
             <img src={starToken3D} alt="STAR Token" className="w-48 h-48" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            STAR Points
-          </h1>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Database className="w-12 h-12 text-[#FCD535]" />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">
+              STAR Points
+            </h1>
+          </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Fair Token Launch Platform on Stellar Blockchain
           </p>
-        </div>
-
-        {/* Conversion Rate */}
-        <div className="max-w-md mx-auto mb-12 bg-[#1A1D23] border border-[#2B3139] rounded-2xl p-8 text-center">
-          <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Conversion Rate</div>
-          <div className="text-4xl font-bold text-white mb-1">1 XLM = 10 STAR</div>
-          <div className="text-sm text-gray-500">Fixed Rate</div>
         </div>
 
         {/* Mint Section */}
@@ -136,97 +132,6 @@ export default function MintPage() {
             </button>
           </div>
         )}
-
-        {/* Tokenomics Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white text-center mb-8">SLF Tokenomics</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
-            {/* Total Supply */}
-            <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Total Supply</div>
-              <div className="text-2xl font-bold text-white">100,000,000</div>
-              <div className="text-sm text-gray-500">SLF Tokens</div>
-            </div>
-
-            {/* STAR Holders */}
-            <div className="bg-[#1A1D23] border border-[#FCD535]/20 rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">STAR Holders</div>
-              <div className="text-2xl font-bold text-[#FCD535]">60,000,000</div>
-              <div className="text-sm text-gray-500">60% of Supply</div>
-            </div>
-
-            {/* Listing Reserve */}
-            <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Listing Reserve</div>
-              <div className="text-2xl font-bold text-white">15,000,000</div>
-              <div className="text-sm text-gray-500">15% of Supply</div>
-            </div>
-
-            {/* Team */}
-            <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Team</div>
-              <div className="text-2xl font-bold text-white">15,000,000</div>
-              <div className="text-sm text-gray-500">15% of Supply</div>
-            </div>
-
-            {/* Launch */}
-            <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Launch</div>
-              <div className="text-2xl font-bold text-white">5,000,000</div>
-              <div className="text-sm text-gray-500">5% of Supply</div>
-            </div>
-
-            {/* Other */}
-            <div className="bg-[#1A1D23] border border-[#2B3139] rounded-xl p-6">
-              <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Other</div>
-              <div className="text-2xl font-bold text-white">5,000,000</div>
-              <div className="text-sm text-gray-500">5% of Supply</div>
-            </div>
-          </div>
-
-          {/* Distribution Chart */}
-          <div className="max-w-2xl mx-auto bg-[#1A1D23] border border-[#2B3139] rounded-xl p-8">
-            <h3 className="text-xl font-bold text-white mb-6">Token Distribution</h3>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-[#FCD535] rounded-full"></div>
-                  <span className="text-gray-300">STAR Holders</span>
-                </div>
-                <span className="text-white font-bold">60%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-[#4A5568] rounded-full"></div>
-                  <span className="text-gray-300">Listing Reserve</span>
-                </div>
-                <span className="text-white font-bold">15%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-[#4A5568] rounded-full"></div>
-                  <span className="text-gray-300">Team (24mo vesting)</span>
-                </div>
-                <span className="text-white font-bold">15%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-[#4A5568] rounded-full"></div>
-                  <span className="text-gray-300">Launch</span>
-                </div>
-                <span className="text-white font-bold">5%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-[#4A5568] rounded-full"></div>
-                  <span className="text-gray-300">Other</span>
-                </div>
-                <span className="text-white font-bold">5%</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* STAR Points Use Case */}
         <div className="mb-16">
