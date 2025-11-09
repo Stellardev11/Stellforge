@@ -3,10 +3,16 @@ import * as StellarSdk from '@stellar/stellar-sdk';
 const CONTRACT_ID = import.meta.env.VITE_CONTRACT_ID || 'CDUMMY_CONTRACT_ID_WILL_BE_SET_AFTER_DEPLOYMENT';
 const NETWORK = import.meta.env.VITE_NETWORK || 'testnet';
 
-const server = new StellarSdk.Horizon.Server(
+const horizonServer = new StellarSdk.Horizon.Server(
   NETWORK === 'mainnet' 
     ? 'https://horizon.stellar.org'
     : `https://horizon-${NETWORK}.stellar.org`
+);
+
+const sorobanServer = new StellarSdk.SorobanRpc.Server(
+  NETWORK === 'mainnet'
+    ? 'https://soroban-rpc.mainnet.stellar.org'
+    : `https://soroban-rpc.${NETWORK}.stellar.org`
 );
 
 export interface Campaign {
@@ -39,7 +45,7 @@ export class ContractService {
     airdropPercent: bigint,
     liquidityPercent: bigint
   ): Promise<string> {
-    const account = await server.loadAccount(sourceAddress);
+    const account = await horizonServer.loadAccount(sourceAddress);
     
     const contract = new StellarSdk.Contract(this.contractId);
     
@@ -62,7 +68,13 @@ export class ContractService {
       .setTimeout(30)
       .build();
 
-    return transaction.toXDR();
+    const simulated = await sorobanServer.simulateTransaction(transaction);
+    const preparedTx = StellarSdk.SorobanRpc.assembleTransaction(
+      transaction,
+      simulated
+    ).build();
+    
+    return preparedTx.toXDR();
   }
 
   async claimAirdrop(
@@ -70,7 +82,7 @@ export class ContractService {
     userAddress: string,
     amount: bigint
   ): Promise<string> {
-    const account = await server.loadAccount(userAddress);
+    const account = await horizonServer.loadAccount(userAddress);
     
     const contract = new StellarSdk.Contract(this.contractId);
     
@@ -91,7 +103,13 @@ export class ContractService {
       .setTimeout(30)
       .build();
 
-    return transaction.toXDR();
+    const simulated = await sorobanServer.simulateTransaction(transaction);
+    const preparedTx = StellarSdk.SorobanRpc.assembleTransaction(
+      transaction,
+      simulated
+    ).build();
+    
+    return preparedTx.toXDR();
   }
 
   async addPoints(
@@ -99,7 +117,7 @@ export class ContractService {
     points: bigint,
     referrals: bigint
   ): Promise<string> {
-    const account = await server.loadAccount(userAddress);
+    const account = await horizonServer.loadAccount(userAddress);
     
     const contract = new StellarSdk.Contract(this.contractId);
     
@@ -120,7 +138,13 @@ export class ContractService {
       .setTimeout(30)
       .build();
 
-    return transaction.toXDR();
+    const simulated = await sorobanServer.simulateTransaction(transaction);
+    const preparedTx = StellarSdk.SorobanRpc.assembleTransaction(
+      transaction,
+      simulated
+    ).build();
+    
+    return preparedTx.toXDR();
   }
 
   async getUserPoints(userAddress: string): Promise<UserPoints | null> {

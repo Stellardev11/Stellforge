@@ -1,12 +1,16 @@
 import { useState } from 'react'
-import { Rocket, ArrowRight, CheckCircle, Upload, Coins, HelpCircle, TrendingUp, Gift, Calendar, Lock } from 'lucide-react'
+import { Rocket, ArrowRight, CheckCircle, Upload, Coins, HelpCircle, TrendingUp, Gift, Calendar, Lock, Loader2 } from 'lucide-react'
 import { useWallet } from '../context/WalletContext'
 import { validateAllocation, validateLiquidityXLM, validateEventDuration } from '../utils/validation'
+import { createStellarToken, completeTokenIssuance } from '../utils/stellarToken'
+import { contractService } from '../services/contractService'
 
 export default function TokenLaunchWizard() {
-  const { connected, connectWallet } = useWallet()
+  const { connected, connectWallet, address, signAndSubmitTransaction } = useWallet()
   const [step, setStep] = useState(1)
   const [logoPreview, setLogoPreview] = useState<string | null>(null)
+  const [isCreating, setIsCreating] = useState(false)
+  const [creationStatus, setCreationStatus] = useState<string>('')
   const [formData, setFormData] = useState({
     tokenName: '',
     tokenSymbol: '',
@@ -91,7 +95,7 @@ export default function TokenLaunchWizard() {
   }
 
   const handleSubmit = async () => {
-    if (!connected) {
+    if (!connected || !address) {
       connectWallet()
       return
     }
@@ -113,8 +117,84 @@ export default function TokenLaunchWizard() {
       alert(eventValidation.error)
       return
     }
-    
-    alert('Token launch initiated! Your event will start soon.')
+
+    setIsCreating(true)
+    setCreationStatus('Creating Stellar token...')
+
+    try {
+      // Step 1: Create Stellar token
+      const tokenResult = await createStellarToken({
+        name: formData.tokenName,
+        symbol: formData.tokenSymbol,
+        decimals: formData.decimals,
+        totalSupply: formData.totalSupply,
+        mintable: false,
+        burnable: false,
+        userAddress: address,
+        isTestnet: true, // Use testnet for demo
+      })
+
+      if (!tokenResult.success && tokenResult.message === 'NEEDS_TRUSTLINE_SIGNATURE') {
+        setCreationStatus('Signing trustline transaction...')
+        
+        // Sign and submit the trustline transaction
+        if (tokenResult.trustlineXDR) {
+          await signAndSubmitTransaction(tokenResult.trustlineXDR)
+          setCreationStatus('Trustline established. Issuing tokens...')
+          
+          // Step 2: Complete token issuance
+          if (tokenResult.issuerSecretKey && tokenResult.assetCode) {
+            const issuanceResult = await completeTokenIssuance(
+              tokenResult.assetCode,
+              tokenResult.issuerSecretKey,
+              address,
+              formData.totalSupply,
+              true
+            )
+
+            if (!issuanceResult.success) {
+              throw new Error(issuanceResult.message)
+            }
+
+            setCreationStatus('Token created! Registering campaign on Soroban...')
+
+            // Step 3: Create campaign in Soroban contract
+            const tokenAddress = tokenResult.issuerPublicKey || address
+            const totalSupply = BigInt(parseInt(formData.totalSupply))
+            const airdropPercent = BigInt(parseInt(formData.airdropPercent))
+            const liquidityPercent = BigInt(parseInt(formData.liquidityPercent))
+
+            const campaignXDR = await contractService.createCampaign(
+              address,
+              tokenAddress,
+              totalSupply,
+              airdropPercent,
+              liquidityPercent
+            )
+
+            setCreationStatus('Signing campaign registration...')
+            const campaignResult = await signAndSubmitTransaction(campaignXDR)
+            console.log('Campaign registration result:', campaignResult)
+
+            setCreationStatus('Success! Your token launch campaign is live! 🎉')
+            
+            // Show success for a moment then reset
+            setTimeout(() => {
+              alert(`Token ${formData.tokenSymbol} launched successfully!\n\nToken: ${tokenResult.assetCode}\nIssuer: ${tokenResult.issuerPublicKey}\nTransaction: ${issuanceResult.transactionHash}\n\nCampaign registered on Soroban contract!`)
+              setIsCreating(false)
+              setCreationStatus('')
+            }, 2000)
+          }
+        }
+      } else {
+        throw new Error(tokenResult.message || 'Token creation failed')
+      }
+    } catch (error) {
+      console.error('Token launch error:', error)
+      setCreationStatus('')
+      setIsCreating(false)
+      alert(`Token launch failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+    }
   }
 
   const stepTitles = [
@@ -470,6 +550,18 @@ export default function TokenLaunchWizard() {
                 <p className="text-eth-grey">Set your event duration and confirm launch</p>
               </div>
 
+              {isCreating && creationStatus && (
+                <div className="bg-gradient-to-r from-stellar-cyan/20 to-bitcoin-orange/20 border-2 border-stellar-cyan/50 rounded-xl p-6 animate-pulse">
+                  <div className="flex items-center gap-4">
+                    <Loader2 className="w-8 h-8 text-stellar-cyan animate-spin flex-shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-lg font-semibold text-white mb-1">Processing...</p>
+                      <p className="text-sm text-eth-grey-medium">{creationStatus}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="bg-pro-dark-lighter p-6 rounded-xl border border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-stellar-cyan" />
@@ -599,10 +691,24 @@ export default function TokenLaunchWizard() {
             ) : (
               <button
                 onClick={handleSubmit}
-                className="ml-auto flex items-center gap-2 px-12 py-4 bg-gradient-to-r from-stellar-cyan to-bitcoin-orange hover:from-stellar-cyan/90 hover:to-bitcoin-orange/90 text-white rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-2xl shadow-stellar-cyan/40"
+                disabled={isCreating}
+                className={`ml-auto flex items-center gap-2 px-12 py-4 bg-gradient-to-r from-stellar-cyan to-bitcoin-orange text-white rounded-xl font-bold text-lg transition-all shadow-2xl shadow-stellar-cyan/40 ${
+                  isCreating
+                    ? 'opacity-50 cursor-not-allowed'
+                    : 'hover:from-stellar-cyan/90 hover:to-bitcoin-orange/90 hover:scale-105'
+                }`}
               >
-                <Rocket className="w-6 h-6" />
-                {connected ? 'Launch Token' : 'Connect Wallet to Launch'}
+                {isCreating ? (
+                  <>
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                    Creating...
+                  </>
+                ) : (
+                  <>
+                    <Rocket className="w-6 h-6" />
+                    {connected ? 'Launch Token' : 'Connect Wallet to Launch'}
+                  </>
+                )}
               </button>
             )}
           </div>
