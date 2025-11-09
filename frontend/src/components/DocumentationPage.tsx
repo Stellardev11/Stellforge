@@ -1,5 +1,5 @@
 import { BookOpen, Coins, Zap, Users, Trophy, Shield, Rocket } from 'lucide-react';
-import pSlfLogo from '../assets/pslf-logo.png';
+import starLogo from '../assets/star-logo.png';
 import slfCoin from '../assets/slf-coin.png';
 
 export default function DocumentationPage() {
@@ -35,24 +35,24 @@ export default function DocumentationPage() {
                 <li><strong>Swap:</strong> Trade tokens on Stellar DEX with competitive rates and minimal slippage</li>
                 <li><strong>Liquidity:</strong> Provide liquidity and earn fees from trading activity</li>
                 <li><strong>Projects:</strong> Launch tokens with fair airdrop mechanics and automated liquidity</li>
-                <li><strong>Points System:</strong> Earn pSLF points and participate in platform growth</li>
+                <li><strong>Points System:</strong> Earn STAR points and participate in platform growth</li>
               </ul>
             </div>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <img src={pSlfLogo} alt="pSLF" className="w-8 h-8" />
-              pSLF Points System
+              <img src={starLogo} alt="STAR" className="w-8 h-8" />
+              STAR Points System
             </h2>
             <div className="bg-gradient-to-br from-[#FCD535]/10 to-[#F7931A]/10 border border-[#FCD535]/30 rounded-lg p-6 space-y-4">
-              <h3 className="text-xl font-bold text-white">What are pSLF Points?</h3>
+              <h3 className="text-xl font-bold text-white">What are STAR Points?</h3>
               <p className="text-gray-300">
-                pSLF (platform SLF) points are non-transferable loyalty points that represent your participation 
+                STAR points are non-transferable loyalty points that represent your participation 
                 in the StellForge ecosystem. They will be converted to SLF tokens at the Token Generation Event (TGE).
               </p>
 
-              <h3 className="text-xl font-bold text-white mt-6">How to Earn pSLF Points</h3>
+              <h3 className="text-xl font-bold text-white mt-6">How to Earn STAR Points</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -60,7 +60,7 @@ export default function DocumentationPage() {
                     <h4 className="font-semibold text-white">Minting</h4>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Mint pSLF points directly by sending XLM. Rate: <strong className="text-[#FCD535]">1 XLM = 1 pSLF</strong>
+                    Mint STAR points directly by sending XLM. Rate: <strong className="text-[#FCD535]">1 XLM = 10 STAR</strong>
                   </p>
                 </div>
 
@@ -70,7 +70,7 @@ export default function DocumentationPage() {
                     <h4 className="font-semibold text-white">Platform Usage</h4>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Earn 1 pSLF for every 1 XLM spent on swaps, liquidity, and token launches
+                    Earn STAR points for platform activity: swaps, liquidity provision, and token launches
                   </p>
                 </div>
 
@@ -80,7 +80,7 @@ export default function DocumentationPage() {
                     <h4 className="font-semibold text-white">Referrals</h4>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Earn <strong className="text-[#FCD535]">5 pSLF</strong> for each successful referral
+                    Earn <strong className="text-[#FCD535]">5 STAR</strong> for each successful referral
                   </p>
                 </div>
 
@@ -90,7 +90,7 @@ export default function DocumentationPage() {
                     <h4 className="font-semibold text-white">Tasks</h4>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Complete social and platform tasks to earn 20-100 pSLF per task
+                    Complete social and platform tasks to earn 20-100 STAR per task
                   </p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function DocumentationPage() {
                 <h4 className="font-semibold text-green-400 mb-2">Early User Bonus</h4>
                 <p className="text-sm text-gray-300">
                   The first <strong className="text-green-400">20,000 users</strong> receive a one-time bonus of{' '}
-                  <strong className="text-green-400">10 free pSLF points</strong> when they join!
+                  <strong className="text-green-400">10 free STAR points</strong> when they join!
                 </p>
               </div>
             </div>
@@ -124,8 +124,8 @@ export default function DocumentationPage() {
                   <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-4">
                     <div className="flex justify-between items-center">
                       <div>
-                        <h4 className="text-white font-semibold">pSLF Points Holders</h4>
-                        <p className="text-sm text-gray-400">Distributed to pSLF holders at TGE</p>
+                        <h4 className="text-white font-semibold">STAR Points Holders</h4>
+                        <p className="text-sm text-gray-400">Distributed to STAR holders at TGE</p>
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-bold text-[#FCD535]">60%</div>
@@ -190,11 +190,11 @@ export default function DocumentationPage() {
                 <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4 mt-6">
                   <h4 className="font-semibold text-purple-400 mb-2">Distribution at TGE</h4>
                   <p className="text-sm text-gray-300">
-                    When the SLF token launches, the 60M tokens allocated to pSLF holders will be distributed 
-                    proportionally based on each user's share of total pSLF points.
+                    When the SLF token launches, the 60M tokens allocated to STAR holders will be distributed 
+                    proportionally based on each user's share of total STAR points.
                   </p>
                   <p className="text-sm text-purple-300 mt-2">
-                    <strong>Formula:</strong> Your SLF = (Your pSLF / Total pSLF) × 60,000,000
+                    <strong>Formula:</strong> Your SLF = (Your STAR / Total STAR) × 60,000,000
                   </p>
                 </div>
               </div>
@@ -217,12 +217,12 @@ export default function DocumentationPage() {
 
               <h3 className="text-xl font-bold text-white mt-6">Fair Distribution</h3>
               <p>
-                The platform ensures fair distribution of both pSLF points and SLF tokens through:
+                The platform ensures fair distribution of both STAR points and SLF tokens through:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Transparent 1:1 minting ratio for all participants</li>
                 <li>No preferential treatment or insider advantages</li>
-                <li>Public tracking of total XLM received and pSLF minted</li>
+                <li>Public tracking of total XLM received and STAR minted</li>
                 <li>Open-source smart contracts for token distribution</li>
               </ul>
             </div>
@@ -250,7 +250,7 @@ export default function DocumentationPage() {
                   <div>
                     <h4 className="text-white font-semibold mb-1">Claim Your Bonus</h4>
                     <p className="text-gray-300 text-sm">
-                      If you're one of the first 20,000 users, claim your free 10 pSLF points
+                      If you're one of the first 20,000 users, claim your free 10 STAR points
                     </p>
                   </div>
                 </li>
@@ -259,9 +259,9 @@ export default function DocumentationPage() {
                     3
                   </span>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Mint pSLF Points</h4>
+                    <h4 className="text-white font-semibold mb-1">Mint STAR Points</h4>
                     <p className="text-gray-300 text-sm">
-                      Convert XLM to pSLF points at 1:1 ratio to maximize your token allocation
+                      Convert XLM to STAR points at 1:1 ratio to maximize your token allocation
                     </p>
                   </div>
                 </li>
@@ -272,7 +272,7 @@ export default function DocumentationPage() {
                   <div>
                     <h4 className="text-white font-semibold mb-1">Earn More Points</h4>
                     <p className="text-gray-300 text-sm">
-                      Use the platform, refer friends, and complete tasks to earn additional pSLF
+                      Use the platform, refer friends, and complete tasks to earn additional STAR
                     </p>
                   </div>
                 </li>
@@ -283,7 +283,7 @@ export default function DocumentationPage() {
                   <div>
                     <h4 className="text-white font-semibold mb-1">Receive SLF at TGE</h4>
                     <p className="text-gray-300 text-sm">
-                      Your pSLF points will be converted to SLF tokens proportionally to your share
+                      Your STAR points will be converted to SLF tokens proportionally to your share
                     </p>
                   </div>
                 </li>

@@ -108,8 +108,8 @@ export class ProjectService {
     const participantWallet = await mintService.getOrCreateWallet(data.participantWalletAddress);
     const creatorWallet = await mintService.getOrCreateWallet(project.creatorWalletAddress);
 
-    const participantPSlf = 1;
-    const creatorPSlf = 1;
+    const participantStar = 1;
+    const creatorStar = 1;
 
     await db.transaction(async (tx) => {
       await tx.insert(projectParticipations).values({
@@ -117,23 +117,23 @@ export class ProjectService {
         participantWalletId: participantWallet.id,
         participantWalletAddress: data.participantWalletAddress,
         xlmContributed: data.xlmAmount.toString(),
-        participantPSlfEarned: participantPSlf.toString(),
-        creatorPSlfEarned: creatorPSlf.toString(),
+        participantStarEarned: participantStar.toString(),
+        creatorStarEarned: creatorStar.toString(),
         transactionHash: data.transactionHash,
       });
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${participantPSlf}`,
-          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${participantPSlf}`,
+          starPoints: sql`${pointBalances.starPoints} + ${participantStar}`,
+          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${participantStar}`,
           updatedAt: new Date(),
         })
         .where(eq(pointBalances.walletId, participantWallet.id));
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${creatorPSlf}`,
-          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${creatorPSlf}`,
+          starPoints: sql`${pointBalances.starPoints} + ${creatorStar}`,
+          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${creatorStar}`,
           updatedAt: new Date(),
         })
         .where(eq(pointBalances.walletId, creatorWallet.id));
@@ -142,17 +142,17 @@ export class ProjectService {
         .set({
           totalParticipations: sql`${projects.totalParticipations} + 1`,
           totalXlmContributed: sql`${projects.totalXlmContributed} + ${data.xlmAmount}`,
-          totalPSlfDistributed: sql`${projects.totalPSlfDistributed} + ${participantPSlf + creatorPSlf}`,
-          creatorPSlfEarned: sql`${projects.creatorPSlfEarned} + ${creatorPSlf}`,
+          totalStarDistributed: sql`${projects.totalStarDistributed} + ${participantStar + creatorStar}`,
+          creatorStarEarned: sql`${projects.creatorStarEarned} + ${creatorStar}`,
           updatedAt: new Date(),
         })
         .where(eq(projects.id, data.projectId));
     });
 
     return {
-      participantPSlf,
-      creatorPSlf,
-      totalPSlf: participantPSlf + creatorPSlf,
+      participantStar,
+      creatorStar,
+      totalStar: participantStar + creatorStar,
     };
   }
 

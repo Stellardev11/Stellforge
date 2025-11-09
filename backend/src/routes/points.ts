@@ -20,8 +20,8 @@ router.post('/mint', async (req, res) => {
 
     res.json({
       success: true,
-      pSlfPoints: result.pSlfPoints,
-      message: `Successfully minted ${result.pSlfPoints} pSLF points`,
+      starPoints: result.starPoints,
+      message: `Successfully minted ${result.starPoints} STAR points!`,
     });
   } catch (error: any) {
     console.error('Mint error:', error);
@@ -58,7 +58,7 @@ router.get('/balance/:walletAddress', async (req, res) => {
 
     if (!balance) {
       return res.json({
-        pSlfPoints: '0',
+        starPoints: '0',
         pointsEarnedFromMinting: '0',
         pointsEarnedFromPlatform: '0',
         pointsEarnedFromReferrals: '0',
@@ -83,11 +83,11 @@ router.get('/stats', async (req, res) => {
       totalSupply: settings?.totalSupply || '100000000',
       pointHoldersAllocationPercent: settings?.pointHoldersAllocationPercent || '60',
       totalXlmReceived: settings?.totalXlmReceived || '0',
-      totalPSlfMinted: settings?.totalPSlfMinted || '0',
+      totalStarMinted: settings?.totalStarMinted || '0',
       mintingActive: settings?.mintingActive !== false,
       totalUsers: userStats?.totalUsers || 0,
       usersWithInitialBonus: userStats?.usersWithInitialBonus || 0,
-      totalPSlfDistributed: userStats?.totalPSlfDistributed || '0',
+      totalStarDistributed: userStats?.totalStarDistributed || '0',
     });
   } catch (error: any) {
     console.error('Stats fetch error:', error);
@@ -132,7 +132,7 @@ router.post('/referral/claim', async (req, res) => {
 
     res.json({
       success: true,
-      message: `Referral recorded! ${result.referrerWallet} earned ${result.pointsAwarded} pSLF points`,
+      message: `Referral recorded! ${result.referrerWallet} earned ${result.pointsAwarded} STAR points`,
       pointsAwarded: result.pointsAwarded,
     });
   } catch (error: any) {
@@ -178,7 +178,7 @@ router.post('/tasks/complete', async (req, res) => {
     res.json({
       success: true,
       pointsAwarded: result.pointsAwarded,
-      message: `Task completed! Earned ${result.pointsAwarded} pSLF points`,
+      message: `Task completed! Earned ${result.pointsAwarded} STAR points`,
     });
   } catch (error: any) {
     console.error('Task completion error:', error);

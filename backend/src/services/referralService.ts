@@ -26,7 +26,7 @@ export class ReferralService {
     await db.insert(pointBalances).values({
       walletId: newWallet.id,
       walletAddress: walletAddress,
-      pSlfPoints: '0',
+      starPoints: '0',
     });
 
     return newWallet;
@@ -104,7 +104,7 @@ export class ReferralService {
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${REFERRAL_REWARD_POINTS}`,
+          starPoints: sql`${pointBalances.starPoints} + ${REFERRAL_REWARD_POINTS}`,
           pointsEarnedFromReferrals: sql`${pointBalances.pointsEarnedFromReferrals} + ${REFERRAL_REWARD_POINTS}`,
           updatedAt: new Date(),
         })

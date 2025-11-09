@@ -3,7 +3,7 @@ import { useWallet } from '../context/WalletContext';
 import { pointsApi, MintStats } from '../api/points';
 import { Coins, Zap, TrendingUp, Users } from 'lucide-react';
 import slfCoin from '../assets/slf-coin.png';
-import pSlfLogo from '../assets/pslf-logo.png';
+import starLogo from '../assets/star-logo.png';
 
 export default function MintPage() {
   const wallet = useWallet();
@@ -45,9 +45,9 @@ export default function MintPage() {
       // This is a mock transaction hash for demo purposes
       const mockTxHash = `mint_${Date.now()}_${Math.random().toString(36).substring(7)}`;
       
-      await pointsApi.mintPoints(walletAddress, amount, mockTxHash);
+      const result = await pointsApi.mintPoints(walletAddress, amount, mockTxHash);
       
-      alert(`✅ Successfully minted 1 pSLF point!`);
+      alert(`✅ Successfully minted ${result.starPoints} STAR points!`);
       setXlmAmount('');
       loadStats();
     } catch (error: any) {
@@ -70,10 +70,10 @@ export default function MintPage() {
             <img src={slfCoin} alt="SLF Coin" className="w-32 h-32 animate-pulse" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Mint pSLF Points
+            Mint STAR Points
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Earn 1 pSLF point per transaction. Points holders receive 60% of SLF token supply at TGE.
+            Earn 10 STAR points per XLM. Points holders receive 60% of SLF token supply at TGE.
           </p>
         </div>
 
@@ -90,11 +90,11 @@ export default function MintPage() {
 
           <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-2">
-              <img src={pSlfLogo} alt="pSLF" className="w-5 h-5" />
-              <span className="text-gray-400 text-sm">Total pSLF Minted</span>
+              <img src={starLogo} alt="STAR" className="w-5 h-5" />
+              <span className="text-gray-400 text-sm">Total STAR Minted</span>
             </div>
             <div className="text-2xl font-bold text-white">
-              {parseFloat(stats?.totalPSlfMinted || '0').toLocaleString()}
+              {parseFloat(stats?.totalStarMinted || '0').toLocaleString()}
             </div>
           </div>
 
@@ -113,8 +113,8 @@ export default function MintPage() {
               <TrendingUp className="w-5 h-5 text-green-500" />
               <span className="text-gray-400 text-sm">Mint Rate</span>
             </div>
-            <div className="text-xl font-bold text-white">1 pSLF / TX</div>
-            <div className="text-xs text-gray-500 mt-1">Per transaction</div>
+            <div className="text-xl font-bold text-white">10 STAR per XLM</div>
+            <div className="text-xs text-gray-500 mt-1">Multiply your XLM by 10</div>
           </div>
         </div>
 
@@ -122,14 +122,14 @@ export default function MintPage() {
           <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-8">
             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
               <Zap className="w-6 h-6 text-[#FCD535]" />
-              Mint pSLF Points
+              Mint STAR Points
             </h2>
 
             <div className="space-y-6">
               {!walletAddress && (
                 <div className="bg-[#FCD535]/10 border border-[#FCD535]/30 rounded-lg p-4 mb-4">
                   <p className="text-[#FCD535] text-sm text-center">
-                    Connect your wallet to mint pSLF points
+                    Connect your wallet to mint STAR points
                   </p>
                 </div>
               )}
@@ -148,7 +148,7 @@ export default function MintPage() {
                     step="0.1"
                   />
                   <p className="text-sm text-gray-500 mt-2">
-                    You will receive: <span className="text-[#FCD535] font-semibold">1 pSLF</span> per transaction
+                    You will receive: <span className="text-[#FCD535] font-semibold">{xlmAmount ? (parseFloat(xlmAmount) * 10).toFixed(1) : '0'} STAR</span> points
                   </p>
                 </div>
 
@@ -157,7 +157,7 @@ export default function MintPage() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Rate</span>
-                      <span className="text-white font-semibold">1 Transaction = 1 pSLF</span>
+                      <span className="text-white font-semibold">1 XLM = 10 STAR</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Network</span>
@@ -171,7 +171,7 @@ export default function MintPage() {
                   disabled={minting || !xlmAmount}
                   className="w-full bg-gradient-to-r from-[#FCD535] to-[#F7931A] text-black py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-[#FCD535]/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {minting ? 'Minting...' : 'Mint pSLF Points'}
+                  {minting ? 'Minting...' : 'Mint STAR Points'}
                 </button>
 
                 <p className="text-xs text-gray-500 text-center">
@@ -217,7 +217,7 @@ export default function MintPage() {
               <ol className="space-y-3 text-gray-300">
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#FCD535] text-black rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                  <span>Mint pSLF points by sending XLM (1 point per transaction)</span>
+                  <span>Mint STAR points by sending XLM (10 STAR per 1 XLM)</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#FCD535] text-black rounded-full flex items-center justify-center text-sm font-bold">2</span>
@@ -225,11 +225,11 @@ export default function MintPage() {
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#FCD535] text-black rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                  <span>At TGE, receive SLF tokens proportional to your pSLF share</span>
+                  <span>At TGE, receive SLF tokens proportional to your STAR share</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#FCD535] text-black rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                  <span>60% of total supply goes to pSLF holders</span>
+                  <span>60% of total supply goes to STAR holders</span>
                 </li>
               </ol>
             </div>

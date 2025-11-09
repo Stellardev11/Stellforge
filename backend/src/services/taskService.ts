@@ -35,7 +35,7 @@ export class TaskService {
       throw new Error('Task already completed');
     }
 
-    const pointsAwarded = parseFloat(task.pSlfReward);
+    const pointsAwarded = parseFloat(task.starReward);
 
     await db.transaction(async (tx) => {
       await tx.insert(taskCompletions).values({
@@ -48,7 +48,7 @@ export class TaskService {
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${pointsAwarded}`,
+          starPoints: sql`${pointBalances.starPoints} + ${pointsAwarded}`,
           pointsEarnedFromTasks: sql`${pointBalances.pointsEarnedFromTasks} + ${pointsAwarded}`,
           updatedAt: new Date(),
         })

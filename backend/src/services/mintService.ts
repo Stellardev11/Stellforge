@@ -1,6 +1,7 @@
 import { db } from '../db';
 import { wallets, pointMints, pointBalances, mintSettings, userStats, transactionRewards } from '../db/schema';
 import { eq, sql } from 'drizzle-orm';
+import { MINT_POINTS_PER_XLM } from '../constants';
 
 const INITIAL_BONUS_POINTS = 10;
 const MAX_BONUS_RECIPIENTS = 20000;
@@ -21,7 +22,7 @@ export class MintService {
     await db.insert(pointBalances).values({
       walletId: newWallet.id,
       walletAddress: walletAddress,
-      pSlfPoints: '0',
+      starPoints: '0',
     });
 
     return newWallet;
@@ -56,7 +57,7 @@ export class MintService {
 
         await tx.update(pointBalances)
           .set({
-            pSlfPoints: sql`${pointBalances.pSlfPoints} + ${INITIAL_BONUS_POINTS}`,
+            starPoints: sql`${pointBalances.starPoints} + ${INITIAL_BONUS_POINTS}`,
             initialBonusReceived: true,
           })
           .where(eq(pointBalances.walletId, wallet.id));
@@ -64,7 +65,7 @@ export class MintService {
         await tx.update(userStats)
           .set({
             usersWithInitialBonus: sql`${userStats.usersWithInitialBonus} + 1`,
-            totalPSlfDistributed: sql`${userStats.totalPSlfDistributed} + ${INITIAL_BONUS_POINTS}`,
+            totalStarDistributed: sql`${userStats.totalStarDistributed} + ${INITIAL_BONUS_POINTS}`,
           })
           .where(eq(userStats.id, stats.id));
 
@@ -76,7 +77,7 @@ export class MintService {
 
         await tx.update(pointBalances)
           .set({
-            pSlfPoints: sql`${pointBalances.pSlfPoints} + ${INITIAL_BONUS_POINTS}`,
+            starPoints: sql`${pointBalances.starPoints} + ${INITIAL_BONUS_POINTS}`,
             initialBonusReceived: true,
           })
           .where(eq(pointBalances.walletId, wallet.id));
@@ -84,7 +85,7 @@ export class MintService {
         await tx.insert(userStats).values({
           totalUsers: 1,
           usersWithInitialBonus: 1,
-          totalPSlfDistributed: INITIAL_BONUS_POINTS.toString(),
+          totalStarDistributed: INITIAL_BONUS_POINTS.toString(),
         });
 
         bonusAwarded = true;
@@ -97,22 +98,22 @@ export class MintService {
   async mintPoints(walletAddress: string, xlmAmount: number, transactionHash: string) {
     const wallet = await this.getOrCreateWallet(walletAddress);
     
-    const pSlfPoints = 1;
+    const starPoints = xlmAmount * MINT_POINTS_PER_XLM;
 
     await db.transaction(async (tx) => {
       await tx.insert(pointMints).values({
         walletId: wallet.id,
         walletAddress,
         xlmAmount: xlmAmount.toString(),
-        pSlfPointsAwarded: pSlfPoints.toString(),
+        starPointsAwarded: starPoints.toString(),
         transactionHash,
         status: 'confirmed',
       });
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${pSlfPoints}`,
-          pointsEarnedFromMinting: sql`${pointBalances.pointsEarnedFromMinting} + ${pSlfPoints}`,
+          starPoints: sql`${pointBalances.starPoints} + ${starPoints}`,
+          pointsEarnedFromMinting: sql`${pointBalances.pointsEarnedFromMinting} + ${starPoints}`,
           updatedAt: new Date(),
         })
         .where(eq(pointBalances.walletId, wallet.id));
@@ -122,19 +123,19 @@ export class MintService {
         await tx.update(mintSettings)
           .set({
             totalXlmReceived: sql`${mintSettings.totalXlmReceived} + ${xlmAmount}`,
-            totalPSlfMinted: sql`${mintSettings.totalPSlfMinted} + ${pSlfPoints}`,
+            totalStarMinted: sql`${mintSettings.totalStarMinted} + ${starPoints}`,
             updatedAt: new Date(),
           })
           .where(eq(mintSettings.id, settings.id));
       } else {
         await tx.insert(mintSettings).values({
           totalXlmReceived: xlmAmount.toString(),
-          totalPSlfMinted: pSlfPoints.toString(),
+          totalStarMinted: starPoints.toString(),
         });
       }
     });
 
-    return { pSlfPoints };
+    return { starPoints };
   }
 
   async getPointBalance(walletAddress: string) {
@@ -157,7 +158,7 @@ export class MintService {
 
   async recordPlatformReward(walletAddress: string, xlmSpent: number, transactionHash: string, transactionType: string) {
     const wallet = await this.getOrCreateWallet(walletAddress);
-    const pSlfPoints = xlmSpent;
+    const starPoints = xlmSpent;
 
     await db.transaction(async (tx) => {
       await tx.insert(transactionRewards).values({
@@ -165,20 +166,20 @@ export class MintService {
         walletAddress,
         transactionHash,
         xlmSpent: xlmSpent.toString(),
-        pSlfPointsAwarded: pSlfPoints.toString(),
+        starPointsAwarded: starPoints.toString(),
         transactionType,
       });
 
       await tx.update(pointBalances)
         .set({
-          pSlfPoints: sql`${pointBalances.pSlfPoints} + ${pSlfPoints}`,
-          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${pSlfPoints}`,
+          starPoints: sql`${pointBalances.starPoints} + ${starPoints}`,
+          pointsEarnedFromPlatform: sql`${pointBalances.pointsEarnedFromPlatform} + ${starPoints}`,
           updatedAt: new Date(),
         })
         .where(eq(pointBalances.walletId, wallet.id));
     });
 
-    return { pSlfPoints };
+    return { starPoints };
   }
 }
 

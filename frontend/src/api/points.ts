@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_BASE_URL = '/api';
 
 export interface PointBalance {
-  pSlfPoints: string;
+  starPoints: string;
   pointsEarnedFromMinting: string;
   pointsEarnedFromPlatform: string;
   pointsEarnedFromReferrals: string;
@@ -15,11 +15,11 @@ export interface MintStats {
   totalSupply: string;
   pointHoldersAllocationPercent: string;
   totalXlmReceived: string;
-  totalPSlfMinted: string;
+  totalStarMinted: string;
   mintingActive: boolean;
   totalUsers: number;
   usersWithInitialBonus: number;
-  totalPSlfDistributed: string;
+  totalStarDistributed: string;
 }
 
 export interface ReferralInfo {
@@ -34,7 +34,7 @@ export interface Task {
   taskType: string;
   title: string;
   description: string;
-  pSlfReward: string;
+  starReward: string;
   isActive: boolean;
   maxCompletions: number | null;
 }

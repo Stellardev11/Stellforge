@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useWallet } from '../context/WalletContext';
 import { pointsApi, PointBalance, ReferralInfo, Task } from '../api/points';
 import { Copy, Check, Gift, Coins, Users, Trophy, ExternalLink, TrendingUp } from 'lucide-react';
-import pSlfLogo from '../assets/pslf-logo.png';
+import starLogo from '../assets/star-logo.png';
 
 export default function PointsDashboard() {
   const wallet = useWallet();
@@ -52,7 +52,7 @@ export default function PointsDashboard() {
       const result = await pointsApi.claimBonus(walletAddress);
       
       if (result.awarded) {
-        alert(`🎉 You received ${result.points} pSLF points as an early user bonus!`);
+        alert(`🎉 You received ${result.points} STAR points as an early user bonus!`);
         loadData();
       } else {
         alert('Sorry, the early user bonus is no longer available.');
@@ -90,7 +90,7 @@ export default function PointsDashboard() {
         <div className="text-center">
           <Coins className="w-16 h-16 text-[#FCD535] mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-white mb-2">Connect Your Wallet</h2>
-          <p className="text-gray-400">Please connect your wallet to view your pSLF dashboard</p>
+          <p className="text-gray-400">Please connect your wallet to view your STAR dashboard</p>
         </div>
       </div>
     );
@@ -104,17 +104,17 @@ export default function PointsDashboard() {
     );
   }
 
-  const totalPoints = parseFloat(balance?.pSlfPoints || '0');
+  const totalPoints = parseFloat(balance?.starPoints || '0');
 
   return (
     <div className="min-h-screen bg-[#0B0E11] pb-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-            <img src={pSlfLogo} alt="pSLF" className="w-10 h-10" />
-            pSLF Points Dashboard
+            <img src={starLogo} alt="STAR" className="w-10 h-10" />
+            STAR Points Dashboard
           </h1>
-          <p className="text-gray-400">Earn pSLF points and participate in the SLF token launch</p>
+          <p className="text-gray-400">Earn STAR points and participate in the SLF token launch</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
@@ -124,11 +124,11 @@ export default function PointsDashboard() {
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-xl flex items-center justify-center">
-                    <img src={pSlfLogo} alt="pSLF" className="w-8 h-8" />
+                    <img src={starLogo} alt="STAR" className="w-8 h-8" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Total Balance</p>
-                    <p className="text-xs text-[#FCD535]">pSLF Points</p>
+                    <p className="text-xs text-[#FCD535]">STAR Points</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -199,7 +199,7 @@ export default function PointsDashboard() {
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-white mb-2">Early User Bonus Available!</h3>
                 <p className="text-gray-300 mb-4">
-                  Claim your <span className="text-[#FCD535] font-bold">10 free pSLF points</span> as an early user!
+                  Claim your <span className="text-[#FCD535] font-bold">10 free STAR points</span> as an early user!
                   Limited to first 20,000 users.
                 </p>
                 <button
@@ -207,7 +207,7 @@ export default function PointsDashboard() {
                   disabled={claiming}
                   className="bg-[#FCD535] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#F7931A] transition-colors disabled:opacity-50"
                 >
-                  {claiming ? 'Claiming...' : 'Claim 10 pSLF Points'}
+                  {claiming ? 'Claiming...' : 'Claim 10 STAR Points'}
                 </button>
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function PointsDashboard() {
               Referral Program
             </h2>
             <p className="text-gray-400 mb-4">
-              Invite friends and earn <span className="text-[#FCD535] font-semibold">5 pSLF points</span> for each successful referral!
+              Invite friends and earn <span className="text-[#FCD535] font-semibold">5 STAR points</span> for each successful referral!
             </p>
             
             <div className="bg-[#0B0E11] border border-[#2B3139] rounded-lg p-4 mb-4">
@@ -273,7 +273,7 @@ export default function PointsDashboard() {
                   >
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="text-white font-semibold">{task.title}</h3>
-                      <span className="text-[#FCD535] font-bold text-sm">+{task.pSlfReward}</span>
+                      <span className="text-[#FCD535] font-bold text-sm">+{task.starReward}</span>
                     </div>
                     <p className="text-gray-400 text-sm mb-3">{task.description}</p>
                     
@@ -299,11 +299,11 @@ export default function PointsDashboard() {
         </div>
 
         <div className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-purple-500/30 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-white mb-2">About pSLF Points</h3>
+          <h3 className="text-xl font-bold text-white mb-2">About STAR Points</h3>
           <p className="text-gray-300">
-            pSLF points will be converted to SLF tokens at TGE (Token Generation Event). 
-            60% of the 100M SLF token supply (60M tokens) is allocated to pSLF holders.
-            Your share is proportional to your pSLF points.
+            STAR points will be converted to SLF tokens at TGE (Token Generation Event). 
+            60% of the 100M SLF token supply (60M tokens) is allocated to STAR holders.
+            Your share is proportional to your STAR points.
           </p>
         </div>
       </div>
