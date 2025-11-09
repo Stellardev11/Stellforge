@@ -1,6 +1,7 @@
 import { BookOpen, Coins, Zap, Users, Trophy, Shield, Rocket } from 'lucide-react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import starLogo from '../assets/star-logo.png';
-import slfCoin from '../assets/slf-coin.png';
+import slfCoin3D from '../assets/slf-coin-3d.png';
 
 export default function DocumentationPage() {
   return (
@@ -107,18 +108,67 @@ export default function DocumentationPage() {
 
           <section>
             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <img src={slfCoin} alt="SLF" className="w-8 h-8" />
+              <img src={slfCoin3D} alt="SLF" className="w-12 h-12" />
               SLF Token Tokenomics
             </h2>
             <div className="bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-purple-500/30 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-white mb-4">Token Distribution</h3>
-              <div className="space-y-4">
-                <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Total Supply</span>
-                    <span className="text-2xl font-bold text-white">100,000,000 SLF</span>
-                  </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+                <div className="flex items-center justify-center">
+                  <img src={slfCoin3D} alt="SLF 3D Coin" className="w-64 h-64 object-contain drop-shadow-2xl" />
                 </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Token Distribution Chart</h3>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: 'STAR Holders', value: 60, color: '#FCD535' },
+                          { name: 'Listing Reserve', value: 15, color: '#8B5CF6' },
+                          { name: 'Team (24mo vesting)', value: 15, color: '#3B82F6' },
+                          { name: 'Launch', value: 5, color: '#10B981' },
+                          { name: 'Other', value: 5, color: '#6B7280' },
+                        ]}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={({ name, value }) => `${name}: ${value}%`}
+                        outerRadius={100}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {[
+                          { name: 'STAR Holders', value: 60, color: '#FCD535' },
+                          { name: 'Listing Reserve', value: 15, color: '#8B5CF6' },
+                          { name: 'Team (24mo vesting)', value: 15, color: '#3B82F6' },
+                          { name: 'Launch', value: 5, color: '#10B981' },
+                          { name: 'Other', value: 5, color: '#6B7280' },
+                        ].map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1E2329', 
+                          border: '1px solid #2B3139',
+                          borderRadius: '8px',
+                          color: '#fff'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-4 mb-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-white font-semibold">Total Supply</span>
+                  <span className="text-2xl font-bold text-white">100,000,000 SLF</span>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-bold text-white mb-4">Detailed Breakdown</h3>
+              <div className="space-y-4">
 
                 <div className="space-y-3">
                   <div className="bg-[#1E2329] border border-[#2B3139] rounded-lg p-4">

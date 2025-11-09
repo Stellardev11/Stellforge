@@ -84,7 +84,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
       title: 'Create Token',
       description: 'Launch your token with name, symbol, supply, and custom branding.',
       icon: Rocket,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-[#FCD535] to-[#F7931A]',
     },
     {
       step: '2',
@@ -112,7 +112,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
       title: 'DEX Launch',
       description: 'At $100K market cap, token auto-launches on Stellar DEX for full liquidity.',
       icon: CheckCircle2,
-      color: 'from-stellar-bright-blue to-lumina-gold',
+      color: 'from-[#FCD535] to-[#F7931A]',
     },
   ]
 
@@ -125,7 +125,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
           transition={{ duration: 0.5 }}
           className="max-w-2xl w-full"
         >
-          <div className="glass-card rounded-3xl p-12 text-center border-2 border-stellar-bright-blue/20">
+          <div className="glass-card rounded-3xl p-12 text-center border-2 border-[#FCD535]/20">
             <motion.div
               animate={{ 
                 scale: [1, 1.1, 1],
@@ -138,7 +138,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
               }}
               className="mb-8"
             >
-              <div className="w-32 h-32 mx-auto bg-gradient-to-br from-stellar-bright-blue to-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-stellar-bright-blue/50">
+              <div className="w-32 h-32 mx-auto bg-gradient-to-br from-[#FCD535] to-[#F7931A] rounded-full flex items-center justify-center shadow-2xl shadow-[#FCD535]/50">
                 <Wallet className="w-16 h-16 text-white" />
               </div>
             </motion.div>
@@ -154,7 +154,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               {[
                 { icon: Star, label: 'View STAR Balance', color: 'from-purple-500 to-pink-500' },
-                { icon: Share2, label: 'Get Referral Link', color: 'from-blue-500 to-cyan-500' },
+                { icon: Share2, label: 'Get Referral Link', color: 'from-[#F7931A] to-cyan-500' },
                 { icon: Trophy, label: 'Track Progress', color: 'from-yellow-500 to-orange-500' },
               ].map((feature, i) => (
                 <motion.div
@@ -174,7 +174,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
             
             <button
               onClick={connectWallet}
-              className="group px-12 py-5 bg-gradient-to-r from-stellar-bright-blue to-blue-600 hover:from-stellar-bright-blue/90 hover:to-blue-600/90 text-white rounded-xl font-bold text-xl transition-all hover:scale-105 shadow-glow inline-flex items-center gap-3"
+              className="group px-12 py-5 bg-gradient-to-r from-[#FCD535] to-[#F7931A] hover:from-[#FCD535]/90 hover:to-[#F7931A]/90 text-white rounded-xl font-bold text-xl transition-all hover:scale-105 shadow-glow inline-flex items-center gap-3"
             >
               <Wallet className="w-7 h-7" />
               Connect Stellar Wallet
@@ -210,7 +210,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
             className="max-w-6xl mx-auto"
           >
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-4 text-sm font-medium text-stellar-bright-blue">
+              <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-4 text-sm font-medium text-[#FCD535]">
                 <CheckCircle2 className="w-4 h-4" />
                 Wallet Connected
               </div>
@@ -232,7 +232,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 className="glass-card rounded-2xl p-6 border-2 border-purple-500/20 hover:border-purple-500/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-[#F7931A] rounded-xl flex items-center justify-center">
                     <img src={starLogo} alt="STAR" className="w-7 h-7" />
                   </div>
                   <div>
@@ -262,10 +262,10 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="glass-card rounded-2xl p-6 border-2 border-blue-500/20 hover:border-blue-500/40 transition-all"
+                className="glass-card rounded-2xl p-6 border-2 border-[#FCD535]/20 hover:border-[#FCD535]/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#F7931A] to-cyan-500 rounded-xl flex items-center justify-center">
                     <Share2 className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -278,7 +278,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                 <button
                   onClick={copyReferralLink}
                   disabled={!referralCode}
-                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-[#F7931A] to-cyan-500 text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {copied ? (
                     <>
@@ -347,7 +347,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                   transition={{ delay: index * 0.1 }}
                   className="glass-card rounded-xl p-6 text-center"
                 >
-                  <Icon className="w-8 h-8 text-stellar-bright-blue mx-auto mb-3" />
+                  <Icon className="w-8 h-8 text-[#FCD535] mx-auto mb-3" />
                   <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
                   <div className="text-sm text-gray-400">{stat.label}</div>
                 </motion.div>
@@ -381,7 +381,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                     <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white font-bold`}>
                       {item.step}
                     </div>
-                    <Icon className="w-6 h-6 text-stellar-bright-blue" />
+                    <Icon className="w-6 h-6 text-[#FCD535]" />
                   </div>
                   
                   <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -420,7 +420,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                           className="w-12 h-12 rounded-full"
                         />
                       ) : (
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-stellar-bright-blue to-blue-600 flex items-center justify-center text-white font-bold">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#FCD535] to-[#F7931A] flex items-center justify-center text-white font-bold">
                           {project.tokenSymbol?.charAt(0) || 'T'}
                         </div>
                       )}
@@ -444,7 +444,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
                       </div>
                       <div className="text-center p-3 bg-white/5 rounded-lg">
                         <div className="flex items-center justify-center gap-1 mb-1">
-                          <Users className="w-4 h-4 text-blue-500" />
+                          <Users className="w-4 h-4 text-[#F7931A]" />
                           <p className="text-xs text-gray-400">Participants</p>
                         </div>
                         <p className="text-lg font-bold text-white">
@@ -478,7 +478,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
           <div className="mt-16 glass-card rounded-2xl p-8 md:p-12 text-center">
             <div className="max-w-3xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <Coins className="w-12 h-12 text-stellar-bright-blue" />
+                <Coins className="w-12 h-12 text-[#FCD535]" />
                 <h2 className="text-display-sm text-white">
                   Ready to Launch?
                 </h2>
@@ -488,7 +488,7 @@ export default function NewDashboard({ setActiveTab }: DashboardProps) {
               </p>
               <button
                 onClick={() => setActiveTab('projects')}
-                className="group px-10 py-5 bg-gradient-to-r from-stellar-bright-blue to-blue-600 hover:from-stellar-bright-blue/90 hover:to-blue-600/90 text-white rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-glow inline-flex items-center gap-2"
+                className="group px-10 py-5 bg-gradient-to-r from-[#FCD535] to-[#F7931A] hover:from-[#FCD535]/90 hover:to-[#F7931A]/90 text-white rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-glow inline-flex items-center gap-2"
               >
                 <Rocket className="w-6 h-6" />
                 Launch Your Token Now
